@@ -1243,7 +1243,7 @@
 const syncInterval = setInterval(() => {
   console.log('SINCRONIZANDO VENTAS...');
   loadCloudSales();
-}, 30000);
+}, 10000);
 
 return () => {
   clearInterval(syncInterval);
