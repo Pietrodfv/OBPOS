@@ -1160,7 +1160,86 @@
       const activeCompanyIngredients = useMemo(() => {
         return (ingredients || []).filter(i => i && (i.empresaId || 'EMP-001') === activeCompanyId);
       }, [ingredients, activeCompanyId]);
+      useEffect(() => {
+        const cloudToken = sessionStorage.getItem('obpos_cloud_access_token');
+        if (!activeCompanyId || !cloudToken || !currentUser) return;
 
+        const loadCloudSales = async () => {
+          try {
+            const headers = getCloudHeaders();
+
+            const salesResponse = await fetch(
+              `${SUPABASE_URL}/rest/v1/ventas?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&select=*&order=fecha_venta.desc`,
+              { headers }
+            );
+
+            const salesRows = await salesResponse.json();
+
+            if (!salesResponse.ok || !Array.isArray(salesRows)) {
+              console.error('Error cargando ventas:', salesRows);
+              return;
+            }
+
+            const detailsResponse = await fetch(
+              `${SUPABASE_URL}/rest/v1/detalle_ventas?select=*`,
+              { headers }
+            );
+
+            const detailRows = await detailsResponse.json();
+
+            if (!detailsResponse.ok || !Array.isArray(detailRows)) {
+              console.error('Error cargando detalles:', detailRows);
+              return;
+            }
+
+            const cloudSales = salesRows.map(sale => {
+              const saleDate = new Date(sale.fecha_venta);
+
+              const products = detailRows
+                .filter(detail => Number(detail.venta_id) === Number(sale.id))
+                .map(detail => ({
+                  id: detail.producto_id || `detail-${detail.id}`,
+                  nombre: detail.producto_nombre,
+                  cantidad: Number(detail.cantidad) || 0,
+                  precio: Number(detail.precio_unitario) || 0,
+                  costo: 0,
+                  subtotal: Number(detail.subtotal) || 0,
+                  ingredienteAsociadoId: null
+                }));
+
+              return {
+                id: sale.id,
+                empresaId: sale.empresa_id,
+                fecha: saleDate.toLocaleDateString('es-BO'),
+                hora: saleDate.toLocaleTimeString('es-BO', {
+                  hour: '2-digit',
+                  minute: '2-digit'
+                }),
+                rawDate: sale.fecha_venta,
+                clienteMesa: 'Venta Rápida',
+                productos: products,
+                subtotal: Number(sale.total) || 0,
+                descuento: 0,
+                total: Number(sale.total) || 0,
+                metodoPago: sale.metodo_pago,
+                montoRecibido: Number(sale.total) || 0,
+                usuario: sale.usuario_nombre,
+                rolUsuario: 'Cajero',
+                status: sale.estado || 'COMPLETA',
+                motivoAnulacion: sale.motivo_anulacion || '',
+                observaciones: ''
+              };
+            });
+
+            setSales(cloudSales);
+
+          } catch (error) {
+            console.error('Error sincronizando ventas:', error);
+          }
+        };
+
+        loadCloudSales();
+      }, [activeCompanyId, currentUser?.id]);
       const filteredActiveRegister = useMemo(() => {
         if (!activeRegister) return null;
         return (activeRegister.empresaId || 'EMP-001') === activeCompanyId ? activeRegister : null;
