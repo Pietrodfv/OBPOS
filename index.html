@@ -1258,7 +1258,45 @@ return () => {
       useEffect(() => {
         const cloudToken = sessionStorage.getItem('obpos_cloud_access_token');
         if (!activeCompanyId || !cloudToken) return;
+        const loadCloudActiveRegister = async () => {
+          try {
+            const response = await fetch(
+              `${SUPABASE_URL}/rest/v1/cierres_caja?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&estado=eq.ABIERTA&select=*&order=fecha_apertura.desc&limit=1`,
+              { headers: getCloudHeaders() }
+            );
 
+            const rows = await response.json();
+
+            if (!response.ok || !Array.isArray(rows)) return;
+
+            if (rows.length === 0) {
+              setActiveRegister(null);
+              return;
+            }
+
+            const row = rows[0];
+
+            setActiveRegister({
+              id: row.id,
+              cloudId: row.id,
+              empresaId: row.empresa_id,
+              fecha: new Date(row.fecha_apertura).toLocaleDateString('es-BO'),
+              hora: new Date(row.fecha_apertura).toLocaleTimeString('es-BO', {
+                hour: '2-digit',
+                minute: '2-digit'
+              }),
+              rawDate: row.fecha_apertura,
+              montoInicial: Number(row.monto_inicial) || 0,
+              abiertoPor: row.cajero_nombre || 'Desconocido',
+              ventas: [],
+              egresos: [],
+              estado: 'ABIERTA'
+            });
+
+          } catch (error) {
+            console.error('Error cargando caja abierta:', error);
+          }
+        };
         const loadCloudRegisterHistory = async () => {
           try {
             const response = await fetch(
@@ -1290,7 +1328,8 @@ return () => {
           }
         };
 
-        loadCloudRegisterHistory();
+        loadCloudActiveRegister();
+loadCloudRegisterHistory();
       }, [activeCompanyId, currentUser?.id]);
 
       const selectedCompanyInfo = useMemo(() => {
