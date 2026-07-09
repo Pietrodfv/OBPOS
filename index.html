@@ -255,9 +255,9 @@
       },
       getLogo: () => {
         try {
-          return localStorage.getItem('obelisco_logo_v3') || 'logo.png';
+          return localStorage.getItem('obelisco_logo_v3') || '/assets/obpos-logo.png';
         } catch (e) {
-          return 'logo.png';
+          return '/assets/obpos-logo.png';
         }
       },
       getActiveRegister: () => {
@@ -2850,7 +2850,7 @@
                   src={logoUrl} 
                   className="w-[50%] max-w-[320px] h-auto opacity-[0.08] object-contain transition-all" 
                   alt="" 
-                  onError={(e) => { e.target.src = 'logo.png' }}
+                  onError={(e) => { e.target.src = '/assets/obpos-logo.png' }}
                 />
               </div>
 
@@ -5324,7 +5324,7 @@
                           src={logoUrl} 
                           className="max-w-full max-h-full object-contain" 
                           alt="Logotipo Actual" 
-                          onError={(e) => { e.target.src = 'logo.png' }}
+                          onError={(e) => { e.target.src = '/assets/obpos-logo.png' }}
                         />
                       </div>
                     </div>
@@ -5703,7 +5703,7 @@
           <div className="min-h-screen bg-brand-black flex flex-col justify-center items-center p-6 relative select-none">
             <div className="bg-brand-dark border border-zinc-800 p-8 rounded-3xl w-full max-w-sm shadow-2xl relative z-10 text-left">
               <div className="text-center mb-6">
-                <img src={logoUrl} className="h-16 w-auto mx-auto object-contain mb-3 rounded" alt="OB POS" />
+                <img src={logoUrl} className="h-28 w-auto max-w-[280px] mx-auto object-contain mb-4" alt="OB POS" />
                 <h1 className="font-black text-xl text-white uppercase tracking-widest font-mono">OB POS</h1>
                 <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider mt-1 font-mono">Acceso de Empresa</p>
               </div>
@@ -6607,7 +6607,7 @@
                   src={logoUrl} 
                   className="h-6 md:h-8 w-auto object-contain rounded" 
                   alt="Logo" 
-                  onError={(e) => { e.target.src = 'logo.png' }} 
+                  onError={(e) => { e.target.src = '/assets/obpos-logo.png' }} 
                 />
                 <h1 className="hidden md:block font-black text-[10px] md:text-[11px] tracking-widest text-white uppercase truncate font-mono">
                   {activeCompany?.nombre || 'OB POS'}
