@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EL OBELISCO POS - Sistema de Gestión Comercial</title>
+  <title>EL OBELISCO POS - Sistema de GestiÃ³n Comercial</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -150,42 +150,42 @@
     const { useState, useEffect, useMemo, useRef } = React;
 
     const CATEGORIES = {
-      COMIDAS: '🍔 COMIDAS',
-      GASEOSAS: '🥤 GASEOSAS'
+      COMIDAS: 'ðŸ” COMIDAS',
+      GASEOSAS: 'ðŸ¥¤ GASEOSAS'
     };
 
     const INITIAL_PRODUCTS = [
-      { id: 'p1', nombre: 'Pollo Económico', precio: 15, costo: 8, categoria: CATEGORIES.COMIDAS, emoji: '🍗', imagen: '', descripcion: 'Porción económica de pollo frito con papas.', tiempoPreparacion: 10, destacado: true, disponible: true },
-      { id: 'p2', nombre: 'Pollo Cuarto', precio: 25, costo: 12, categoria: CATEGORIES.COMIDAS, emoji: '🍗', imagen: '', descripcion: 'Un cuarto de pollo tierno con guarnición.', tiempoPreparacion: 12, destacado: false, disponible: true },
-      { id: 'p3', nombre: 'Hamburguesa Clásica', precio: 20, costo: 9, categoria: CATEGORIES.COMIDAS, emoji: '🍔', imagen: '', descripcion: 'Hamburguesa de res clásica con queso cheddar.', tiempoPreparacion: 8, destacado: false, disponible: true },
-      { id: 'p4', nombre: 'Hamburguesa BBQ', precio: 23, costo: 10, categoria: CATEGORIES.COMIDAS, emoji: '🍔', imagen: '', descripcion: 'Hamburguesa ahumada con salsa BBQ artesanal.', tiempoPreparacion: 9, destacado: true, disponible: true },
-      { id: 'p5', nombre: 'Hamburguesa Obelisco', precio: 25, costo: 11, categoria: CATEGORIES.COMIDAS, emoji: '🍔', imagen: '', descripcion: 'Hamburguesa especial de la casa con doble carne y tocino.', tiempoPreparacion: 12, destacado: true, disponible: true },
-      { id: 'p6', nombre: 'Milanesa Picada', precio: 25, costo: 11, categoria: CATEGORIES.COMIDAS, emoji: '🥩', imagen: '', descripcion: 'Milanesa cortada en cubos con guarnición.', tiempoPreparacion: 14, destacado: false, disponible: true },
-      { id: 'p7', nombre: 'Pipoca de Pollo', precio: 25, costo: 10, categoria: CATEGORIES.COMIDAS, emoji: '🍿', imagen: '', descripcion: 'Pequeños trozos crujientes de pollo empanado.', tiempoPreparacion: 10, destacado: false, disponible: true },
-      { id: 'p8', nombre: 'Alitas BBQ', precio: 25, costo: 12, categoria: CATEGORIES.COMIDAS, emoji: '🍗', imagen: '', descripcion: 'Alitas glaseadas en salsa barbacoa.', tiempoPreparacion: 11, destacado: true, disponible: true },
-      { id: 'p9', nombre: 'Salchipollo', precio: 16, costo: 7, categoria: CATEGORIES.COMIDAS, emoji: '🍟', imagen: '', descripcion: 'Papas fritas con trozos de pollo y salchichas.', tiempoPreparacion: 7, destacado: false, disponible: true },
-      { id: 'p10', nombre: 'Lomito', precio: 20, costo: 10, categoria: CATEGORIES.COMIDAS, emoji: '🥪', imagen: '', descripcion: 'Sándwich de lomo de res con aderezos de la casa.', tiempoPreparacion: 9, destacado: false, disponible: true },
-      { id: 'p11', nombre: 'Salchipapa', precio: 15, costo: 6, categoria: CATEGORIES.COMIDAS, emoji: '🍟', imagen: '', descripcion: 'Papas fritas con salchicha tradicional.', tiempoPreparacion: 5, destacado: false, disponible: true },
-      { id: 'p12', nombre: 'Coca-Cola Mini', precio: 5, costo: 2.5, categoria: CATEGORIES.GASEOSAS, emoji: '🥤', imagen: '', descripcion: 'Coca-Cola original en envase personal.', tiempoPreparacion: 1, destacado: false, disponible: true },
-      { id: 'p13', nombre: 'Vaso de Canela', precio: 3, costo: 1, categoria: CATEGORIES.GASEOSAS, emoji: '🍷', imagen: '', descripcion: 'Vaso refrescante de infusión de canela tradicional.', tiempoPreparacion: 1, destacado: true, disponible: true },
-      { id: 'p14', nombre: 'Jarra de Canela', precio: 10, costo: 3.5, categoria: CATEGORIES.GASEOSAS, emoji: '🏺', imagen: '', descripcion: 'Jarra familiar de infusión de canela helada.', tiempoPreparacion: 2, destacado: true, disponible: true }
+      { id: 'p1', nombre: 'Pollo EconÃ³mico', precio: 15, costo: 8, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸ—', imagen: '', descripcion: 'PorciÃ³n econÃ³mica de pollo frito con papas.', tiempoPreparacion: 10, destacado: true, disponible: true },
+      { id: 'p2', nombre: 'Pollo Cuarto', precio: 25, costo: 12, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸ—', imagen: '', descripcion: 'Un cuarto de pollo tierno con guarniciÃ³n.', tiempoPreparacion: 12, destacado: false, disponible: true },
+      { id: 'p3', nombre: 'Hamburguesa ClÃ¡sica', precio: 20, costo: 9, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸ”', imagen: '', descripcion: 'Hamburguesa de res clÃ¡sica con queso cheddar.', tiempoPreparacion: 8, destacado: false, disponible: true },
+      { id: 'p4', nombre: 'Hamburguesa BBQ', precio: 23, costo: 10, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸ”', imagen: '', descripcion: 'Hamburguesa ahumada con salsa BBQ artesanal.', tiempoPreparacion: 9, destacado: true, disponible: true },
+      { id: 'p5', nombre: 'Hamburguesa Obelisco', precio: 25, costo: 11, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸ”', imagen: '', descripcion: 'Hamburguesa especial de la casa con doble carne y tocino.', tiempoPreparacion: 12, destacado: true, disponible: true },
+      { id: 'p6', nombre: 'Milanesa Picada', precio: 25, costo: 11, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸ¥©', imagen: '', descripcion: 'Milanesa cortada en cubos con guarniciÃ³n.', tiempoPreparacion: 14, destacado: false, disponible: true },
+      { id: 'p7', nombre: 'Pipoca de Pollo', precio: 25, costo: 10, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸ¿', imagen: '', descripcion: 'PequeÃ±os trozos crujientes de pollo empanado.', tiempoPreparacion: 10, destacado: false, disponible: true },
+      { id: 'p8', nombre: 'Alitas BBQ', precio: 25, costo: 12, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸ—', imagen: '', descripcion: 'Alitas glaseadas en salsa barbacoa.', tiempoPreparacion: 11, destacado: true, disponible: true },
+      { id: 'p9', nombre: 'Salchipollo', precio: 16, costo: 7, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸŸ', imagen: '', descripcion: 'Papas fritas con trozos de pollo y salchichas.', tiempoPreparacion: 7, destacado: false, disponible: true },
+      { id: 'p10', nombre: 'Lomito', precio: 20, costo: 10, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸ¥ª', imagen: '', descripcion: 'SÃ¡ndwich de lomo de res con aderezos de la casa.', tiempoPreparacion: 9, destacado: false, disponible: true },
+      { id: 'p11', nombre: 'Salchipapa', precio: 15, costo: 6, categoria: CATEGORIES.COMIDAS, emoji: 'ðŸŸ', imagen: '', descripcion: 'Papas fritas con salchicha tradicional.', tiempoPreparacion: 5, destacado: false, disponible: true },
+      { id: 'p12', nombre: 'Coca-Cola Mini', precio: 5, costo: 2.5, categoria: CATEGORIES.GASEOSAS, emoji: 'ðŸ¥¤', imagen: '', descripcion: 'Coca-Cola original en envase personal.', tiempoPreparacion: 1, destacado: false, disponible: true },
+      { id: 'p13', nombre: 'Vaso de Canela', precio: 3, costo: 1, categoria: CATEGORIES.GASEOSAS, emoji: 'ðŸ·', imagen: '', descripcion: 'Vaso refrescante de infusiÃ³n de canela tradicional.', tiempoPreparacion: 1, destacado: true, disponible: true },
+      { id: 'p14', nombre: 'Jarra de Canela', precio: 10, costo: 3.5, categoria: CATEGORIES.GASEOSAS, emoji: 'ðŸº', imagen: '', descripcion: 'Jarra familiar de infusiÃ³n de canela helada.', tiempoPreparacion: 2, destacado: true, disponible: true }
     ];
 
     const INITIAL_INGREDIENTS = [
-      { id: 'i1', nombre: 'Pollo (Raciones)', stock: 80, unidad: 'und', stockMinimo: 10, costoUnitario: 4, proveedor: 'Avícola Sofía', fechaCompra: '2026-06-15', fechaVencimiento: '2026-07-20' },
-      { id: 'i2', nombre: 'Pan de Hamburguesa', stock: 100, unidad: 'und', stockMinimo: 15, costoUnitario: 1.5, proveedor: 'Panadería Victoria', fechaCompra: '2026-06-25', fechaVencimiento: '2026-07-10' },
-      { id: 'i3', nombre: 'Carne Molida', stock: 50, unidad: 'porciones', stockMinimo: 8, costoUnitario: 5, proveedor: 'Frigorífico Santa Cruz', fechaCompra: '2026-06-24', fechaVencimiento: '2026-07-05' },
+      { id: 'i1', nombre: 'Pollo (Raciones)', stock: 80, unidad: 'und', stockMinimo: 10, costoUnitario: 4, proveedor: 'AvÃ­cola SofÃ­a', fechaCompra: '2026-06-15', fechaVencimiento: '2026-07-20' },
+      { id: 'i2', nombre: 'Pan de Hamburguesa', stock: 100, unidad: 'und', stockMinimo: 15, costoUnitario: 1.5, proveedor: 'PanaderÃ­a Victoria', fechaCompra: '2026-06-25', fechaVencimiento: '2026-07-10' },
+      { id: 'i3', nombre: 'Carne Molida', stock: 50, unidad: 'porciones', stockMinimo: 8, costoUnitario: 5, proveedor: 'FrigorÃ­fico Santa Cruz', fechaCompra: '2026-06-24', fechaVencimiento: '2026-07-05' },
       { id: 'i4', nombre: 'Papas Cortadas', stock: 150, unidad: 'porciones', stockMinimo: 20, costoUnitario: 2.5, proveedor: 'Mercado Abasto', fechaCompra: '2026-06-25', fechaVencimiento: '2026-07-08' },
       { id: 'i5', nombre: 'Salsa BBQ', stock: 2000, unidad: 'g', stockMinimo: 300, costoUnitario: 0.05, proveedor: 'Distribuidora Alimentos', fechaCompra: '2026-06-10', fechaVencimiento: '2026-08-30' },
-      { id: 'i6', nombre: 'Coca-Cola Mini Físicas', stock: 120, unidad: 'und', stockMinimo: 12, costoUnitario: 2.5, proveedor: 'Embol SRL', fechaCompra: '2026-06-20', fechaVencimiento: '2026-12-30' },
-      { id: 'i7', nombre: 'Jarabe de Canela', stock: 5000, unidad: 'ml', stockMinimo: 1000, costoUnitario: 0.002, proveedor: 'Elaboración Propia', fechaCompra: '2026-06-25', fechaVencimiento: '2026-07-25' },
-      { id: 'i8', nombre: 'Carne Lomito', stock: 40, unidad: 'porciones', stockMinimo: 6, costoUnitario: 6, proveedor: 'Frigorífico Oriente', fechaCompra: '2026-06-24', fechaVencimiento: '2026-07-15' }
+      { id: 'i6', nombre: 'Coca-Cola Mini FÃ­sicas', stock: 120, unidad: 'und', stockMinimo: 12, costoUnitario: 2.5, proveedor: 'Embol SRL', fechaCompra: '2026-06-20', fechaVencimiento: '2026-12-30' },
+      { id: 'i7', nombre: 'Jarabe de Canela', stock: 5000, unidad: 'ml', stockMinimo: 1000, costoUnitario: 0.002, proveedor: 'ElaboraciÃ³n Propia', fechaCompra: '2026-06-25', fechaVencimiento: '2026-07-25' },
+      { id: 'i8', nombre: 'Carne Lomito', stock: 40, unidad: 'porciones', stockMinimo: 6, costoUnitario: 6, proveedor: 'FrigorÃ­fico Oriente', fechaCompra: '2026-06-24', fechaVencimiento: '2026-07-15' }
     ];
 
     const RECIPES = {
-      'Pollo Económico': [{ ingredienteId: 'i1', cantidad: 1 }, { ingredienteId: 'i4', cantidad: 1 }],
+      'Pollo EconÃ³mico': [{ ingredienteId: 'i1', cantidad: 1 }, { ingredienteId: 'i4', cantidad: 1 }],
       'Pollo Cuarto': [{ ingredienteId: 'i1', cantidad: 1 }, { ingredienteId: 'i4', cantidad: 1.5 }],
-      'Hamburguesa Clásica': [{ ingredienteId: 'i2', cantidad: 1 }, { ingredienteId: 'i3', cantidad: 1 }],
+      'Hamburguesa ClÃ¡sica': [{ ingredienteId: 'i2', cantidad: 1 }, { ingredienteId: 'i3', cantidad: 1 }],
       'Hamburguesa BBQ': [{ ingredienteId: 'i2', cantidad: 1 }, { ingredienteId: 'i3', cantidad: 1 }, { ingredienteId: 'i5', cantidad: 30 }],
       'Hamburguesa Obelisco': [{ ingredienteId: 'i2', cantidad: 1 }, { ingredienteId: 'i3', cantidad: 2 }, { ingredienteId: 'i4', cantidad: 0.5 }],
       'Milanesa Picada': [{ ingredienteId: 'i1', cantidad: 1.5 }, { ingredienteId: 'i4', cantidad: 1 }],
@@ -255,9 +255,9 @@
       },
       getLogo: () => {
         try {
-          return localStorage.getItem('obelisco_logo_v3') || 'logo.png';
+          return localStorage.getItem('obelisco_logo_v3') || '/assets/obpos-logo.png';
         } catch (e) {
-          return 'logo.png';
+          return '/assets/obpos-logo.png';
         }
       },
       getActiveRegister: () => {
@@ -281,20 +281,20 @@
           const raw = localStorage.getItem('obelisco_restaurant_config');
           return raw ? JSON.parse(raw) : {
             nombre: 'EL OBELISCO',
-            direccion: 'Av. Las Américas #450, Santa Cruz',
+            direccion: 'Av. Las AmÃ©ricas #450, Santa Cruz',
             telefono: '+591 78945612',
             nit: '345892021',
-            pieTicket: '¡Gracias por su preferencia! Vuelva pronto.',
+            pieTicket: 'Â¡Gracias por su preferencia! Vuelva pronto.',
             ticketera: 'Termica Epson TM-T88VI',
             tema: 'Oscuro'
           };
         } catch (e) {
           return {
             nombre: 'EL OBELISCO',
-            direccion: 'Av. Las Américas #450, Santa Cruz',
+            direccion: 'Av. Las AmÃ©ricas #450, Santa Cruz',
             telefono: '+591 78945612',
             nit: '345892021',
-            pieTicket: '¡Gracias por su preferencia! Vuelva pronto.',
+            pieTicket: 'Â¡Gracias por su preferencia! Vuelva pronto.',
             ticketera: 'Termica Epson TM-T88VI',
             tema: 'Oscuro'
           };
@@ -311,8 +311,8 @@
             mostrarLogo: true,
             mostrarDireccion: true,
             mostrarTelefono: true,
-            mensajeFinal: '¡Gracias por su preferencia! Vuelva pronto.',
-            impresoraPredeterminada: 'Impresora Térmica Sistema'
+            mensajeFinal: 'Â¡Gracias por su preferencia! Vuelva pronto.',
+            impresoraPredeterminada: 'Impresora TÃ©rmica Sistema'
           };
         } catch (e) {
           return {
@@ -323,8 +323,8 @@
             mostrarLogo: true,
             mostrarDireccion: true,
             mostrarTelefono: true,
-            mensajeFinal: '¡Gracias por su preferencia! Vuelva pronto.',
-            impresoraPredeterminada: 'Impresora Térmica Sistema'
+            mensajeFinal: 'Â¡Gracias por su preferencia! Vuelva pronto.',
+            impresoraPredeterminada: 'Impresora TÃ©rmica Sistema'
           };
         }
       },
@@ -354,7 +354,7 @@
       }
     };
 
-    const MENU_EMOJIS = ['🍔','🍗','🍟','🍕','🌭','🥪','🌮','🌯','🍖','🥩','🍤','🐟','🍣','🍜','🍝','🥗','🥟','🍳','🥞','🧇','🍰','🧁','🍩','🍪','🍦','☕','🥤','🧃','🍹','🍽️'];
+    const MENU_EMOJIS = ['ðŸ”','ðŸ—','ðŸŸ','ðŸ•','ðŸŒ­','ðŸ¥ª','ðŸŒ®','ðŸŒ¯','ðŸ–','ðŸ¥©','ðŸ¤','ðŸŸ','ðŸ£','ðŸœ','ðŸ','ðŸ¥—','ðŸ¥Ÿ','ðŸ³','ðŸ¥ž','ðŸ§‡','ðŸ°','ðŸ§','ðŸ©','ðŸª','ðŸ¦','â˜•','ðŸ¥¤','ðŸ§ƒ','ðŸ¹','ðŸ½ï¸'];
 
     function App() {
       // PERSISTENT DATA HOOKS
@@ -456,7 +456,7 @@
 
         const amount = Math.floor(Number(licenseDaysInput));
         if (!Number.isFinite(amount) || amount <= 0) {
-          showToast('Ingresa una cantidad válida de días', 'error');
+          showToast('Ingresa una cantidad vÃ¡lida de dÃ­as', 'error');
           return;
         }
 
@@ -508,15 +508,15 @@
 
           showToast(
             licenseModal.action === 'ADD'
-              ? `${amount} días añadidos en la nube`
-              : `${amount} días descontados en la nube`,
+              ? `${amount} dÃ­as aÃ±adidos en la nube`
+              : `${amount} dÃ­as descontados en la nube`,
             'success'
           );
 
           setLicenseModal(null);
           setLicenseDaysInput('');
         } catch (error) {
-          showToast('Error de conexión al actualizar la licencia', 'error');
+          showToast('Error de conexiÃ³n al actualizar la licencia', 'error');
         }
       };
 
@@ -549,15 +549,15 @@
             nextState === 'SUSPENDIDA' ? 'warning' : 'success'
           );
         } catch (error) {
-          showToast('Error de conexión al cambiar el estado', 'error');
+          showToast('Error de conexiÃ³n al cambiar el estado', 'error');
         }
       };
 
       const handleResetAdminAuthPassword = async (companyId) => {
-        const nuevaPassword = window.prompt(`Nueva contraseña para el Administrador de ${companyId}:`);
+        const nuevaPassword = window.prompt(`Nueva contraseÃ±a para el Administrador de ${companyId}:`);
         if (nuevaPassword === null) return;
         if (nuevaPassword.trim().length < 6) {
-          showToast('La contraseña debe tener al menos 6 caracteres', 'error');
+          showToast('La contraseÃ±a debe tener al menos 6 caracteres', 'error');
           return;
         }
 
@@ -569,7 +569,7 @@
           const profiles = await profilesResponse.json();
 
           if (!profilesResponse.ok || !Array.isArray(profiles) || !profiles[0]?.id) {
-            showToast('No se encontró el perfil Administrador', 'error');
+            showToast('No se encontrÃ³ el perfil Administrador', 'error');
             return;
           }
 
@@ -588,14 +588,14 @@
           const result = await response.json();
 
           if (!response.ok || !result.success) {
-            showToast(result.error || 'No se pudo restablecer la contraseña', 'error');
+            showToast(result.error || 'No se pudo restablecer la contraseÃ±a', 'error');
             return;
           }
 
-          showToast(`Contraseña Auth del Administrador de ${companyId} actualizada`, 'success');
+          showToast(`ContraseÃ±a Auth del Administrador de ${companyId} actualizada`, 'success');
         } catch (error) {
           console.error(error);
-          showToast('Error de conexión al restablecer contraseña', 'error');
+          showToast('Error de conexiÃ³n al restablecer contraseÃ±a', 'error');
         }
       };
 
@@ -605,14 +605,14 @@
         if (!companyId) return;
 
         if (companyId === 'EMP-001') {
-          showToast('EMP-001 está protegida y no puede eliminarse', 'error');
+          showToast('EMP-001 estÃ¡ protegida y no puede eliminarse', 'error');
           setDeleteCompanyId(null);
           return;
         }
 
         const token = sessionStorage.getItem('obpos_superadmin_access_token');
         if (!token) {
-          showToast('La sesión del Super Admin venció. Vuelve a iniciar sesión.', 'error');
+          showToast('La sesiÃ³n del Super Admin venciÃ³. Vuelve a iniciar sesiÃ³n.', 'error');
           return;
         }
 
@@ -641,7 +641,7 @@
           setDeleteCompanyId(null);
           showToast(`${companyId} eliminada de la nube correctamente`, 'success');
         } catch (error) {
-          showToast('Error de conexión al eliminar la empresa', 'error');
+          showToast('Error de conexiÃ³n al eliminar la empresa', 'error');
         }
       };
 
@@ -650,12 +650,12 @@
         if (currentUser?.rol !== 'Administrador' || !currentUser?.email) return;
 
         if (adminPasswordForm.nueva.length < 6) {
-          showToast('La nueva contraseña debe tener al menos 6 caracteres', 'error');
+          showToast('La nueva contraseÃ±a debe tener al menos 6 caracteres', 'error');
           return;
         }
 
         if (adminPasswordForm.nueva !== adminPasswordForm.confirmar) {
-          showToast('Las nuevas contraseñas no coinciden', 'error');
+          showToast('Las nuevas contraseÃ±as no coinciden', 'error');
           return;
         }
 
@@ -678,7 +678,7 @@
           const verifyData = await verifyResponse.json();
 
           if (!verifyResponse.ok || !verifyData.access_token) {
-            showToast('La contraseña actual es incorrecta', 'error');
+            showToast('La contraseÃ±a actual es incorrecta', 'error');
             return;
           }
 
@@ -699,17 +699,17 @@
 
           if (!updateResponse.ok) {
             const errorData = await updateResponse.json();
-            showToast(errorData.msg || errorData.message || 'No se pudo actualizar la contraseña', 'error');
+            showToast(errorData.msg || errorData.message || 'No se pudo actualizar la contraseÃ±a', 'error');
             return;
           }
 
           sessionStorage.setItem('obpos_cloud_access_token', verifyData.access_token);
           sessionStorage.setItem('obpos_cloud_refresh_token', verifyData.refresh_token || '');
           setAdminPasswordForm({ actual: '', nueva: '', confirmar: '' });
-          showToast('Contraseña del Administrador actualizada correctamente', 'success');
+          showToast('ContraseÃ±a del Administrador actualizada correctamente', 'success');
         } catch (error) {
-          console.error('Error cambio contraseña ADM:', error);
-          showToast('Error de conexión al cambiar contraseña', 'error');
+          console.error('Error cambio contraseÃ±a ADM:', error);
+          showToast('Error de conexiÃ³n al cambiar contraseÃ±a', 'error');
         }
       };
 
@@ -749,7 +749,7 @@
         });
       }, []);
 
-      // Normalización de credenciales ADM conocidas.
+      // NormalizaciÃ³n de credenciales ADM conocidas.
       useEffect(() => {
         setCompanies(prev => {
           let changed = false;
@@ -805,19 +805,19 @@
         e.preventDefault();
 
         if (!newCompanyForm.nombre.trim() || !newCompanyForm.password.trim()) {
-          showToast('Nombre comercial y contraseña son obligatorios', 'error');
+          showToast('Nombre comercial y contraseÃ±a son obligatorios', 'error');
           return;
         }
         if (newCompanyForm.password !== newCompanyForm.confirmPassword) {
-          showToast('Las contraseñas no coinciden', 'error');
+          showToast('Las contraseÃ±as no coinciden', 'error');
           return;
         }
         if (!newCompanyForm.adminPin.trim()) {
-          showToast('La contraseña del Administrador es obligatoria', 'error');
+          showToast('La contraseÃ±a del Administrador es obligatoria', 'error');
           return;
         }
         if (!newCompanyForm.cajeroEmail.trim() || newCompanyForm.cajeroPassword.trim().length < 6) {
-          showToast('El Cajero necesita correo y contraseña de al menos 6 caracteres', 'error');
+          showToast('El Cajero necesita correo y contraseÃ±a de al menos 6 caracteres', 'error');
           return;
         }
 
@@ -825,7 +825,7 @@
         const token = sessionStorage.getItem('obpos_superadmin_access_token');
 
         if (!token) {
-          showToast('La sesión del Super Admin venció. Vuelve a iniciar sesión.', 'error');
+          showToast('La sesiÃ³n del Super Admin venciÃ³. Vuelve a iniciar sesiÃ³n.', 'error');
           return;
         }
 
@@ -898,7 +898,7 @@
           setIsNewCompanyOpen(false);
           showToast(`${id} creada y guardada en la nube`, 'success');
         } catch (error) {
-          showToast('Error de conexión al crear la empresa', 'error');
+          showToast('Error de conexiÃ³n al crear la empresa', 'error');
         }
       };
 
@@ -980,7 +980,7 @@
         fecha: new Date().toISOString().split('T')[0],
         descripcion: '',
         monto: '',
-        categoria: 'Mercadería'
+        categoria: 'MercaderÃ­a'
       });
 
       const [newProductForm, setNewProductForm] = useState({
@@ -988,7 +988,7 @@
         precio: '',
         costo: '',
         categoria: CATEGORIES.COMIDAS,
-        emoji: '🍔',
+        emoji: 'ðŸ”',
         imagen: '',
         descripcion: '',
         tiempoPreparacion: '10',
@@ -998,7 +998,7 @@
 
       const [cloudCategories, setCloudCategories] = useState([]);
       const [newCategoryName, setNewCategoryName] = useState('');
-      const [newCategoryEmoji, setNewCategoryEmoji] = useState('🍽️');
+      const [newCategoryEmoji, setNewCategoryEmoji] = useState('ðŸ½ï¸');
 
       const loadCloudCategories = async () => {
         if (!activeCompanyId) return;
@@ -1020,7 +1020,7 @@
             }
           }
         } catch (error) {
-          console.error('Error cargando categorías:', error);
+          console.error('Error cargando categorÃ­as:', error);
         }
       };
 
@@ -1031,13 +1031,13 @@
       const handleAddCategory = async (e) => {
         e.preventDefault();
         const nombre = String(newCategoryName || '').trim();
-        const emoji = String(newCategoryEmoji || '🍽️').trim();
+        const emoji = String(newCategoryEmoji || 'ðŸ½ï¸').trim();
         if (!nombre) {
-          showToast('Escribe el nombre de la categoría', 'error');
+          showToast('Escribe el nombre de la categorÃ­a', 'error');
           return;
         }
         if (cloudCategories.some(c => c.nombre.toLowerCase() === nombre.toLowerCase())) {
-          showToast('Esta categoría ya existe', 'warning');
+          showToast('Esta categorÃ­a ya existe', 'warning');
           return;
         }
         try {
@@ -1048,23 +1048,23 @@
           });
           const rows = await response.json();
           if (!response.ok || !Array.isArray(rows) || rows.length === 0) {
-            showToast('No se pudo crear la categoría', 'error');
+            showToast('No se pudo crear la categorÃ­a', 'error');
             return;
           }
           setCloudCategories(prev => [...prev, rows[0]]);
           setNewProductForm(prev => ({ ...prev, categoria: rows[0].nombre }));
           setNewCategoryName('');
-          setNewCategoryEmoji('🍽️');
-          showToast(`Categoría ${rows[0].nombre} creada`, 'success');
+          setNewCategoryEmoji('ðŸ½ï¸');
+          showToast(`CategorÃ­a ${rows[0].nombre} creada`, 'success');
         } catch (error) {
-          showToast('Error de conexión al crear categoría', 'error');
+          showToast('Error de conexiÃ³n al crear categorÃ­a', 'error');
         }
       };
 
 
       const handleDeleteCategory = async (categoryId, categoryName) => {
         const confirmDelete = window.confirm(
-          `¿Eliminar la categoría ${categoryName}? Los productos asociados podrían quedar sin categoría.`
+          `Â¿Eliminar la categorÃ­a ${categoryName}? Los productos asociados podrÃ­an quedar sin categorÃ­a.`
         );
 
         if (!confirmDelete) return;
@@ -1079,7 +1079,7 @@
           );
 
           if (!response.ok) {
-            showToast('No se pudo eliminar la categoría', 'error');
+            showToast('No se pudo eliminar la categorÃ­a', 'error');
             return;
           }
 
@@ -1087,9 +1087,9 @@
             prev.filter(cat => cat.id !== categoryId)
           );
 
-          showToast('Categoría eliminada correctamente', 'success');
+          showToast('CategorÃ­a eliminada correctamente', 'success');
         } catch (error) {
-          showToast('Error al eliminar categoría', 'error');
+          showToast('Error al eliminar categorÃ­a', 'error');
         }
       };
 
@@ -1274,7 +1274,7 @@
         if (isAuthorized) {
           setActiveTab(tabName);
         } else {
-          showAlert('Acceso Denegado', `El perfil actual (${currentUser?.nombre || 'Desconocido'} - ${currentUser?.rol || 'Ninguno'}) no tiene autorización para ingresar a ${tabName}. Se requieren permisos de administrador.`);
+          showAlert('Acceso Denegado', `El perfil actual (${currentUser?.nombre || 'Desconocido'} - ${currentUser?.rol || 'Ninguno'}) no tiene autorizaciÃ³n para ingresar a ${tabName}. Se requieren permisos de administrador.`);
         }
       };
 
@@ -1290,7 +1290,7 @@
         } else {
           setCurrentUser(selectedUsr);
           setActiveTab('VENTAS');
-          showToast(`Iniciaste sesión como ${selectedUsr.nombre}`, 'success');
+          showToast(`Iniciaste sesiÃ³n como ${selectedUsr.nombre}`, 'success');
           logAction(`Cambio de usuario a ${selectedUsr.nombre}`);
         }
       };
@@ -1299,7 +1299,7 @@
         e.preventDefault();
         const enteredPassword = String(passwordInput || '').trim();
 
-        // Administradores y Cajeros con identidad Auth usan autenticación real.
+        // Administradores y Cajeros con identidad Auth usan autenticaciÃ³n real.
         if (targetUser?.email) {
           try {
             const response = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
@@ -1318,7 +1318,7 @@
 
             if (!response.ok || !authData.access_token) {
               setPasswordError(true);
-              showToast('Contraseña incorrecta', 'error');
+              showToast('ContraseÃ±a incorrecta', 'error');
               return;
             }
 
@@ -1330,13 +1330,13 @@
             setPasswordInput('');
             setPasswordError(false);
             setActiveTab('VENTAS');
-            showToast(`¡Acceso Concedido! Bienvenido, ${targetUser.nombre}`, 'success');
-            logAction(`Inicio de sesión Auth como ${targetUser.nombre}`);
+            showToast(`Â¡Acceso Concedido! Bienvenido, ${targetUser.nombre}`, 'success');
+            logAction(`Inicio de sesiÃ³n Auth como ${targetUser.nombre}`);
             return;
           } catch (error) {
             console.error('Error login Auth:', error);
             setPasswordError(true);
-            showToast('No se pudo conectar para iniciar sesión', 'error');
+            showToast('No se pudo conectar para iniciar sesiÃ³n', 'error');
             return;
           }
         }
@@ -1588,7 +1588,7 @@
             if (ing.stock <= 0) {
               alertsList.push({ type: 'danger', text: `Ingrediente Agotado: ${ing.nombre}` });
             } else if (ing.stock <= ing.stockMinimo) {
-              alertsList.push({ type: 'warning', text: `Stock Crítico: ${ing.nombre} está bajo (${ing.stock} ${ing.unidad})` });
+              alertsList.push({ type: 'warning', text: `Stock CrÃ­tico: ${ing.nombre} estÃ¡ bajo (${ing.stock} ${ing.unidad})` });
             }
           }
         });
@@ -1599,12 +1599,12 @@
           const openedAt = new Date(filteredActiveRegister.rawDate || Date.now());
           const timeDiff = Date.now() - openedAt.getTime();
           if (!isNaN(timeDiff) && timeDiff > 24 * 60 * 60 * 1000) {
-            alertsList.push({ type: 'danger', text: 'Turno de caja abierto hace más de 24 horas' });
+            alertsList.push({ type: 'danger', text: 'Turno de caja abierto hace mÃ¡s de 24 horas' });
           }
         }
 
         if ((localBackups || []).length === 0) {
-          alertsList.push({ type: 'warning', text: 'Copia de seguridad requerida: Ningún respaldo generado' });
+          alertsList.push({ type: 'warning', text: 'Copia de seguridad requerida: NingÃºn respaldo generado' });
         }
 
         const licenseDaysRemaining = activeCompany?.fechaVencimiento
@@ -1614,7 +1614,7 @@
         if (licenseDaysRemaining > 0 && licenseDaysRemaining <= 3) {
           alertsList.unshift({
             type: 'license',
-            text: `⚠️ Tu licencia vence en ${licenseDaysRemaining} día${licenseDaysRemaining === 1 ? '' : 's'}. Contacta con tu asesor al 75384985 para renovar.`
+            text: `âš ï¸ Tu licencia vence en ${licenseDaysRemaining} dÃ­a${licenseDaysRemaining === 1 ? '' : 's'}. Contacta con tu asesor al 75384985 para renovar.`
           });
         }
 
@@ -1707,7 +1707,7 @@
               </div>
               <div style="border-bottom: 1px dashed black; margin: 4px 0;"></div>
               <table style="width: 100%; font-size: 10px; border-collapse: collapse;">
-                <tr><td><b>Venta Nº:</b></td><td style="text-align: right;">#${s.id}</td></tr>
+                <tr><td><b>Venta NÂº:</b></td><td style="text-align: right;">#${s.id}</td></tr>
                 <tr><td><b>Cliente/Mesa:</b></td><td style="text-align: right; text-transform: uppercase;"><b>${s.clienteMesa}</b></td></tr>
                 <tr><td><b>Fecha:</b></td><td style="text-align: right;">${s.fecha} ${s.hora}</td></tr>
                 <tr><td><b>Cajero:</b></td><td style="text-align: right;">${s.usuario}</td></tr>
@@ -1756,7 +1756,7 @@
               <div style="border-bottom: 1px dashed black; margin: 6px 0;"></div>
               
               <div style="font-size: 10px; text-align: center; line-height: 1.3;">
-                <div><b>Método de Pago:</b> <span style="text-transform: uppercase;">${s.metodoPago}</span></div>
+                <div><b>MÃ©todo de Pago:</b> <span style="text-transform: uppercase;">${s.metodoPago}</span></div>
                 ${s.metodoPago === 'Efectivo' ? `
                   <div>Recibido: ${s.montoRecibido || s.total} Bs</div>
                   <div>Cambio: ${Math.max(0, (s.montoRecibido || s.total) - s.total).toFixed(2)} Bs</div>
@@ -1782,14 +1782,14 @@
           return `
             <div class="print-comanda font-mono text-black p-2 bg-white ${printConfig.tamanoPapel === '58mm' ? 'print-width-58' : 'print-width-80'}" style="font-size: 13px; line-height: 1.3;">
               <div style="text-align: center; font-weight: bold; font-size: 16px; text-transform: uppercase; border: 2px solid black; padding: 4px 0; margin-bottom: 8px;">
-                🍳 COMANDA COCINA
+                ðŸ³ COMANDA COCINA
               </div>
               <div style="text-align: center; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 4px;">
                 ${restaurantConfig.nombre}
               </div>
               <div style="border-bottom: 2px solid black; margin: 4px 0;"></div>
               <table style="width: 100%; font-size: 11px; border-collapse: collapse;">
-                <tr><td><b style="font-size: 13px;">PEDIDO Nº:</b></td><td style="text-align: right;"><b style="font-size: 14px;">#${s.id}</b></td></tr>
+                <tr><td><b style="font-size: 13px;">PEDIDO NÂº:</b></td><td style="text-align: right;"><b style="font-size: 14px;">#${s.id}</b></td></tr>
                 <tr><td><b style="font-size: 13px;">MESA/CLI:</b></td><td style="text-align: right;"><b style="font-size: 14px; text-transform: uppercase;">${s.clienteMesa}</b></td></tr>
                 <tr><td><b>Fecha:</b></td><td style="text-align: right;">${s.fecha} ${s.hora}</td></tr>
               </table>
@@ -1832,7 +1832,7 @@
         setTimeout(() => {
           window.print();
           spool.innerHTML = '';
-          logAction("Impresión física iniciada");
+          logAction("ImpresiÃ³n fÃ­sica iniciada");
         }, 150);
       };
 
@@ -1840,7 +1840,7 @@
       const handleOpenRegister = async () => {
         const amount = parseFloat(montoInicialInput);
         if (isNaN(amount) || amount < 0) {
-          showToast('Ingresa un monto inicial válido de apertura', 'error');
+          showToast('Ingresa un monto inicial vÃ¡lido de apertura', 'error');
           return;
         }
 
@@ -1891,14 +1891,14 @@
           logAction(`Apertura de turno de caja con Bs ${amount}`);
           showToast('Caja abierta y guardada en la nube', 'success');
         } catch (error) {
-          showToast('Error de conexión al abrir la caja', 'error');
+          showToast('Error de conexiÃ³n al abrir la caja', 'error');
         }
       };
 
       const handleCloseRegister = async () => {
         const realCash = parseFloat(dineroContadoInput);
         if (isNaN(realCash) || realCash < 0) {
-          showToast('Ingresa un recuento físico válido', 'error');
+          showToast('Ingresa un recuento fÃ­sico vÃ¡lido', 'error');
           return;
         }
 
@@ -1961,7 +1961,7 @@
           logAction(`Cierre de turno de caja. Esperado: Bs ${expectedCash}, Contado: Bs ${realCash}, Diferencia: Bs ${diff}`);
           showToast('Caja cerrada y guardada en la nube', 'success');
         } catch (error) {
-          showToast('Error de conexión al cerrar la caja', 'error');
+          showToast('Error de conexiÃ³n al cerrar la caja', 'error');
         }
       };
 
@@ -2018,16 +2018,16 @@
       const handleCancelSale = () => {
         if (cart.length === 0) return;
         showConfirmation(
-          '¿Cancelar Venta Actual?',
-          'Esta acción vaciará el carrito y borrará el progreso de esta orden.',
+          'Â¿Cancelar Venta Actual?',
+          'Esta acciÃ³n vaciarÃ¡ el carrito y borrarÃ¡ el progreso de esta orden.',
           () => {
             setCart([]);
             setDiscount(0);
             setCustomerTag('');
             showToast('Pedido cancelado', 'error');
-            logAction('Cancelación de orden en pantalla de cobros');
+            logAction('CancelaciÃ³n de orden en pantalla de cobros');
           },
-          'Sí, Cancelar'
+          'SÃ­, Cancelar'
         );
       };
 
@@ -2060,7 +2060,7 @@
 
       const handleSaveSale = async () => {
         if (isSavingSale) {
-          showToast('La venta ya se está guardando', 'warning');
+          showToast('La venta ya se estÃ¡ guardando', 'warning');
           return;
         }
         if (cart.length === 0) return;
@@ -2095,7 +2095,7 @@
         });
 
         if (outOfStockWarnings.length > 0) {
-          showToast(`¡Bajo stock de ingredientes! Suministro crítico: ${[...new Set(outOfStockWarnings)].join(', ')}`, 'warning');
+          showToast(`Â¡Bajo stock de ingredientes! Suministro crÃ­tico: ${[...new Set(outOfStockWarnings)].join(', ')}`, 'warning');
         }
 
         const timestamp = new Date();
@@ -2181,7 +2181,7 @@
             }
           }
         } catch (error) {
-          showToast('Error de conexión. La venta no fue registrada.', 'error');
+          showToast('Error de conexiÃ³n. La venta no fue registrada.', 'error');
           setIsSavingSale(false);
           return;
         }
@@ -2194,7 +2194,7 @@
           fecha: timestamp.toLocaleDateString('es-BO'),
           hora: timestamp.toLocaleTimeString('es-BO', { hour: '2-digit', minute: '2-digit' }),
           rawDate: timestamp.toISOString(),
-          clienteMesa: customerTag.trim() || 'Venta Rápida', 
+          clienteMesa: customerTag.trim() || 'Venta RÃ¡pida', 
           productos: cart.map(item => ({
             id: item.id,
             nombre: item.nombre,
@@ -2257,21 +2257,21 @@
         if (!saleToVoid) return;
 
         if (saleToVoid.status === 'ANULADA') {
-          showToast('Esta venta ya está anulada', 'warning');
+          showToast('Esta venta ya estÃ¡ anulada', 'warning');
           return;
         }
 
-        const motivo = window.prompt('Motivo obligatorio de la anulación:');
+        const motivo = window.prompt('Motivo obligatorio de la anulaciÃ³n:');
         if (motivo === null) return;
 
         if (motivo.trim().length < 3) {
-          showToast('Debes indicar un motivo válido', 'error');
+          showToast('Debes indicar un motivo vÃ¡lido', 'error');
           return;
         }
 
         showConfirmation(
-          '¿Confirmar anulación de venta?',
-          'La venta será anulada y el inventario será devuelto en una sola operación segura.',
+          'Â¿Confirmar anulaciÃ³n de venta?',
+          'La venta serÃ¡ anulada y el inventario serÃ¡ devuelto en una sola operaciÃ³n segura.',
           async () => {
             try {
               const response = await fetch(
@@ -2290,8 +2290,8 @@
               const result = await response.json();
 
               if (!response.ok) {
-                console.error('Error transacción anulación:', result);
-                showToast('La venta no fue anulada. Ningún dato fue modificado.', 'error');
+                console.error('Error transacciÃ³n anulaciÃ³n:', result);
+                showToast('La venta no fue anulada. NingÃºn dato fue modificado.', 'error');
                 return;
               }
 
@@ -2316,7 +2316,7 @@
               }
 
               // Recargar inventario desde la nube para reflejar exactamente
-              // la devolución realizada por la transacción SQL.
+              // la devoluciÃ³n realizada por la transacciÃ³n SQL.
               try {
                 const inventoryResponse = await fetch(
                   `${SUPABASE_URL}/rest/v1/inventario?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&activo=eq.true&select=*`,
@@ -2348,14 +2348,14 @@
                 console.error('Error refrescando inventario:', refreshError);
               }
 
-              logAction(`Anulación transaccional del Ticket #${saleId}. Motivo: ${motivo.trim()}`);
+              logAction(`AnulaciÃ³n transaccional del Ticket #${saleId}. Motivo: ${motivo.trim()}`);
               showToast(`Venta #${saleId} anulada y stock devuelto`, 'warning');
             } catch (error) {
-              console.error('Error de conexión al anular:', error);
-              showToast('Error de conexión. La anulación no fue confirmada.', 'error');
+              console.error('Error de conexiÃ³n al anular:', error);
+              showToast('Error de conexiÃ³n. La anulaciÃ³n no fue confirmada.', 'error');
             }
           },
-          'Sí, Anular'
+          'SÃ­, Anular'
         );
       };
 
@@ -2420,10 +2420,10 @@
                 setLogoUrl(parsedData.logoUrl);
                 localStorage.setItem('obelisco_logo_v3', parsedData.logoUrl);
               }
-              logAction('Restauración completa de base de datos desde respaldo externo');
-              showToast('¡Sistema restaurado con éxito a partir del archivo de respaldo!', 'success');
+              logAction('RestauraciÃ³n completa de base de datos desde respaldo externo');
+              showToast('Â¡Sistema restaurado con Ã©xito a partir del archivo de respaldo!', 'success');
             } else {
-              showToast('Formato de archivo de respaldo no válido', 'error');
+              showToast('Formato de archivo de respaldo no vÃ¡lido', 'error');
             }
           } catch (err) {
             showToast('Error al leer el archivo de base de datos', 'error');
@@ -2500,20 +2500,20 @@
             fecha: new Date().toISOString().split('T')[0],
             descripcion: '',
             monto: '',
-            categoria: 'Mercadería'
+            categoria: 'MercaderÃ­a'
           });
 
           logAction(`Gasto guardado en nube: ${newExpense.descripcion} por Bs ${newExpense.monto}`);
           showToast('Gasto guardado en la nube', 'success');
         } catch (error) {
-          showToast('Error de conexión al guardar el gasto', 'error');
+          showToast('Error de conexiÃ³n al guardar el gasto', 'error');
         }
       };
 
       const handleDeleteExpense = (id) => {
         showConfirmation(
-          '¿Eliminar Gasto?',
-          '¿Estás seguro de que deseas eliminar permanentemente este registro de gasto?',
+          'Â¿Eliminar Gasto?',
+          'Â¿EstÃ¡s seguro de que deseas eliminar permanentemente este registro de gasto?',
           async () => {
             try {
               const expense = expenses.find(exp => exp && exp.id === id);
@@ -2533,10 +2533,10 @@
               }
 
               setExpenses(prev => prev.filter(exp => exp && exp.id !== id));
-              logAction('Eliminación de gasto en nube');
+              logAction('EliminaciÃ³n de gasto en nube');
               showToast('Gasto eliminado de la nube', 'warning');
             } catch (error) {
-              showToast('Error de conexión al eliminar el gasto', 'error');
+              showToast('Error de conexiÃ³n al eliminar el gasto', 'error');
             }
           }
         );
@@ -2566,7 +2566,7 @@
           const categoryRows = await categoryResponse.json();
 
           if (!categoryResponse.ok || !Array.isArray(categoryRows) || categoryRows.length === 0) {
-            showToast('No se encontró la categoría en la nube', 'error');
+            showToast('No se encontrÃ³ la categorÃ­a en la nube', 'error');
             return;
           }
 
@@ -2581,7 +2581,7 @@
               categoria_id: categoryRows[0].id,
               nombre: newProductForm.nombre.trim(),
               precio: parseFloat(newProductForm.precio),
-              emoji: newProductForm.emoji || '🍽️',
+              emoji: newProductForm.emoji || 'ðŸ½ï¸',
               activo: true
             })
           });
@@ -2601,9 +2601,9 @@
             precio: Number(row.precio) || 0,
             costo: parseFloat(newProductForm.costo),
             categoria: newProductForm.categoria,
-            emoji: newProductForm.emoji || '🍽️',
+            emoji: newProductForm.emoji || 'ðŸ½ï¸',
             imagen: '',
-            descripcion: newProductForm.descripcion || 'Sin descripción.',
+            descripcion: newProductForm.descripcion || 'Sin descripciÃ³n.',
             tiempoPreparacion: parseInt(newProductForm.tiempoPreparacion) || 10,
             destacado: newProductForm.destacado,
             disponible: row.activo !== false,
@@ -2616,7 +2616,7 @@
             precio: '',
             costo: '',
             categoria: newProductForm.categoria,
-            emoji: newProductForm.categoria === CATEGORIES.COMIDAS ? '🍔' : '🥤',
+            emoji: newProductForm.categoria === CATEGORIES.COMIDAS ? 'ðŸ”' : 'ðŸ¥¤',
             imagen: '',
             descripcion: '',
             tiempoPreparacion: '10',
@@ -2624,17 +2624,17 @@
             ingredienteAsociadoId: ''
           });
 
-          logAction(`Plato añadido a la nube: ${newProduct.nombre} por Bs ${newProduct.precio}`);
-          showToast(`¡${newProduct.nombre} guardado en la nube!`, 'success');
+          logAction(`Plato aÃ±adido a la nube: ${newProduct.nombre} por Bs ${newProduct.precio}`);
+          showToast(`Â¡${newProduct.nombre} guardado en la nube!`, 'success');
         } catch (error) {
-          showToast('Error de conexión al guardar el producto', 'error');
+          showToast('Error de conexiÃ³n al guardar el producto', 'error');
         }
       };
 
       const handleDeleteProduct = (productId, productName) => {
         showConfirmation(
-          '¿Eliminar del Menú?',
-          `¿Estás seguro de que deseas eliminar permanentemente "${productName}" del menú?`,
+          'Â¿Eliminar del MenÃº?',
+          `Â¿EstÃ¡s seguro de que deseas eliminar permanentemente "${productName}" del menÃº?`,
           async () => {
             try {
               const product = products.find(p => p && p.id === productId);
@@ -2654,10 +2654,10 @@
               }
 
               setProducts(prev => prev.filter(p => p && p.id !== productId));
-              logAction(`Eliminación de plato en nube: ${productName}`);
+              logAction(`EliminaciÃ³n de plato en nube: ${productName}`);
               showToast(`Eliminado: ${productName}`, 'warning');
             } catch (error) {
-              showToast('Error de conexión al eliminar', 'error');
+              showToast('Error de conexiÃ³n al eliminar', 'error');
             }
           }
         );
@@ -2686,7 +2686,7 @@
           logAction(`Disponibilidad nube para ${productId}: ${state}`);
           showToast('Disponibilidad actualizada en la nube', 'success');
         } catch (error) {
-          showToast('Error de conexión al actualizar disponibilidad', 'error');
+          showToast('Error de conexiÃ³n al actualizar disponibilidad', 'error');
         }
       };
 
@@ -2757,13 +2757,13 @@
           });
 
           showToast(`${nombre} guardado en la nube`, 'success');
-          logAction(`Insumo añadido a la nube: ${nombre}`);
+          logAction(`Insumo aÃ±adido a la nube: ${nombre}`);
         } catch (error) {
-          showToast('Error de conexión al guardar el insumo', 'error');
+          showToast('Error de conexiÃ³n al guardar el insumo', 'error');
         }
       };
 
-      // CERRAR SESIÓN DE EMPRESA
+      // CERRAR SESIÃ“N DE EMPRESA
       const handleCompanyLogout = () => {
         sessionStorage.removeItem('obelisco_company_active');
         sessionStorage.removeItem('obelisco_session_active');
@@ -2779,7 +2779,7 @@
 
         setCurrentUser(INITIAL_USERS[0]);
         setActiveTab('VENTAS');
-        showToast('Sesión de empresa cerrada', 'warning');
+        showToast('SesiÃ³n de empresa cerrada', 'warning');
       };
 
       const handleSuperAdminLogout = () => {
@@ -2795,7 +2795,7 @@
         
         setIsSuperAdminLoggedIn(false);
         setIsSuperAdminPOSMode(false);
-        showToast('Sesión de Super Admin cerrada', 'warning');
+        showToast('SesiÃ³n de Super Admin cerrada', 'warning');
       };
 
       // ==========================================================
@@ -2806,10 +2806,10 @@
           <div className="h-full flex flex-col lg:flex-row overflow-hidden fade-in relative">
             {!filteredActiveRegister && (
               <div className="absolute inset-0 bg-brand-black/95 flex flex-col items-center justify-center z-30 p-6 text-center">
-                <span className="text-6xl mb-4">🔒</span>
+                <span className="text-6xl mb-4">ðŸ”’</span>
                 <h3 className="text-xl font-black text-white uppercase tracking-wider">Turno de Caja Cerrado</h3>
                 <p className="text-zinc-500 text-xs max-w-sm mt-2 mb-6">
-                  Para poder comenzar a registrar pedidos y despachar comida o gaseosas, debe realizar la apertura del turno de caja del día.
+                  Para poder comenzar a registrar pedidos y despachar comida o gaseosas, debe realizar la apertura del turno de caja del dÃ­a.
                 </p>
                 <button
                   onClick={() => setIsOpeningRegisterOpen(true)}
@@ -2823,7 +2823,7 @@
             {/* CATEGORIES COLUMN */}
             <div className="w-full lg:w-44 bg-brand-dark lg:border-r border-brand-gray p-4 flex lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto shrink-0 no-scrollbar border-b lg:border-b-0 z-10">
               <div className="hidden lg:block mb-2 text-[10px] font-black text-zinc-500 tracking-widest uppercase font-mono">
-                Categorías
+                CategorÃ­as
               </div>
               {cloudCategories.map(category => (
                 <button
@@ -2838,7 +2838,7 @@
                       : 'bg-brand-gray text-zinc-400 hover:bg-brand-gray/80 hover:text-white'
                   }`}
                 >
-                  {category.emoji || '🍽️'} {category.nombre}
+                  {category.emoji || 'ðŸ½ï¸'} {category.nombre}
                 </button>
               ))}
             </div>
@@ -2850,7 +2850,7 @@
                   src={logoUrl} 
                   className="w-[50%] max-w-[320px] h-auto opacity-[0.08] object-contain transition-all" 
                   alt="" 
-                  onError={(e) => { e.target.src = 'logo.png' }}
+                  onError={(e) => { e.target.src = '/assets/obpos-logo.png' }}
                 />
               </div>
 
@@ -2867,7 +2867,7 @@
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="w-36 md:w-48 bg-brand-gray text-xs border border-zinc-700 rounded-full py-1.5 pl-8 pr-3 text-white focus:outline-none focus:border-brand-red"
                     />
-                    <span className="absolute left-2.5 top-2 text-zinc-400 text-xs">🔍</span>
+                    <span className="absolute left-2.5 top-2 text-zinc-400 text-xs">ðŸ”</span>
                   </div>
                 </div>
 
@@ -2899,7 +2899,7 @@
                         )}
                         {p.destacado && (
                           <div className="absolute top-0 left-0 bg-brand-red text-white text-[8px] font-black px-1.5 py-0.5 rounded-br uppercase tracking-wider">
-                            ⭐
+                            â­
                           </div>
                         )}
                         <div className="flex flex-col gap-1 md:gap-2">
@@ -2930,7 +2930,7 @@
                   onClick={() => setIsMobileCartOpen(true)}
                   className="flex-1 bg-brand-red hover:bg-brand-lightRed text-white py-2.5 px-4 rounded-xl font-black text-xs flex items-center justify-between active-scale"
                 >
-                  <span className="flex items-center gap-2 font-bold">🛒 Pedido Actual ({cartTotalQuantity})</span>
+                  <span className="flex items-center gap-2 font-bold">ðŸ›’ Pedido Actual ({cartTotalQuantity})</span>
                   <span>Total: {cartTotal} Bs</span>
                 </button>
               </div>
@@ -2941,7 +2941,7 @@
               isMobileCartOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'
             }`}>
               <div className="p-3 bg-brand-black/40 border-b border-brand-gray flex items-center gap-2 font-mono">
-                <span className="text-xs">📍</span>
+                <span className="text-xs">ðŸ“</span>
                 <input
                   type="text"
                   placeholder="Mesa, Nombre o Para Llevar..."
@@ -2951,7 +2951,7 @@
                 />
                 {customerTag && (
                   <button onClick={() => setCustomerTag('')} className="text-zinc-500 hover:text-white text-[10px]">
-                    ✕
+                    âœ•
                   </button>
                 )}
                 <button 
@@ -2964,10 +2964,10 @@
 
               <div className="p-4 border-b border-brand-gray flex justify-between items-center bg-brand-black/20 font-mono">
                 <h3 className="font-extrabold text-xs uppercase tracking-wider text-white flex items-center gap-2">
-                  <span>🛒</span> Pedido Actual
+                  <span>ðŸ›’</span> Pedido Actual
                 </h3>
                 <span className="bg-brand-red text-white text-xs font-black px-2.5 py-1 rounded-full">
-                  {cartTotalQuantity} ítems
+                  {cartTotalQuantity} Ã­tems
                 </span>
               </div>
 
@@ -2986,7 +2986,7 @@
                         onClick={() => handleRemoveProduct(item.id)}
                         className="text-zinc-500 hover:text-brand-red text-xs p-1"
                       >
-                        🗑
+                        ðŸ—‘
                       </button>
                     </div>
                     
@@ -2996,7 +2996,7 @@
                           onClick={() => handleDecrementQuantity(item.id)}
                           className="px-2.5 py-1 text-zinc-400 hover:text-white hover:bg-brand-black text-xs transition-colors font-black active-scale"
                         >
-                          ➖
+                          âž–
                         </button>
                         <span className="px-3 text-xs font-black text-white bg-brand-black/20">
                           {item.cantidad}
@@ -3005,7 +3005,7 @@
                           onClick={() => handleIncrementQuantity(item.id)}
                           className="px-2.5 py-1 text-zinc-400 hover:text-white hover:bg-brand-black text-xs transition-colors font-black active-scale"
                         >
-                          ➕
+                          âž•
                         </button>
                       </div>
                       <span className="font-black text-xs text-white">
@@ -3016,8 +3016,8 @@
                 ))}
                 {cart.length === 0 && (
                   <div className="h-full flex flex-col items-center justify-center text-zinc-600 py-12">
-                    <span className="text-5xl text-center">🥡</span>
-                    <p className="mt-4 text-xs font-bold uppercase tracking-wider text-zinc-500 text-center font-mono">Carrito Vacío</p>
+                    <span className="text-5xl text-center">ðŸ¥¡</span>
+                    <p className="mt-4 text-xs font-bold uppercase tracking-wider text-zinc-500 text-center font-mono">Carrito VacÃ­o</p>
                     <p className="text-[10px] text-zinc-500 mt-1 text-center font-mono font-bold">Presiona productos para cargarlos.</p>
                   </div>
                 )}
@@ -3060,7 +3060,7 @@
                       onClick={() => setIsClosingRegisterOpen(true)}
                       className="text-brand-red hover:text-brand-lightRed font-bold underline"
                     >
-                      Arqueo y Cierre 🔒
+                      Arqueo y Cierre ðŸ”’
                     </button>
                   </div>
                 )}
@@ -3090,7 +3090,7 @@
                         : 'bg-brand-red hover:bg-brand-lightRed text-white shadow-brand-red/20'
                     }`}
                   >
-                    COBRAR ➔
+                    COBRAR âž”
                   </button>
                 </div>
               </div>
@@ -3119,14 +3119,14 @@
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 font-mono">
                 <div>
                   <h3 className="text-base font-black text-white">DASHBOARD DE VENTAS</h3>
-                  <p className="text-xs text-zinc-500">Métricas de rendimiento operacional para: <span className="text-brand-red font-bold">{currentUser?.nombre || 'Desconocido'}</span></p>
+                  <p className="text-xs text-zinc-500">MÃ©tricas de rendimiento operacional para: <span className="text-brand-red font-bold">{currentUser?.nombre || 'Desconocido'}</span></p>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
                 <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-5 flex flex-col justify-between shadow-lg">
                   <div>
-                    <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Vendido por Mí Hoy</span>
+                    <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Vendido por MÃ­ Hoy</span>
                     <h3 className="text-2xl font-black mt-1 text-white">{cashierTodaySales.toFixed(2)} Bs</h3>
                   </div>
                 </div>
@@ -3155,7 +3155,7 @@
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 font-mono">
                 <div className="lg:col-span-2 bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg">
-                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Mis Últimas 10 Ventas Realizadas</h4>
+                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Mis Ãšltimas 10 Ventas Realizadas</h4>
                   <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse text-xs">
                       <thead>
@@ -3181,7 +3181,7 @@
                 </div>
 
                 <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg">
-                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Mis Métodos de Pago de Hoy</h4>
+                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Mis MÃ©todos de Pago de Hoy</h4>
                   <div className="space-y-4">
                     {Object.keys(cashierTodayPayments).length > 0 ? (
                       Object.entries(cashierTodayPayments).map(([method, total]) => {
@@ -3201,7 +3201,7 @@
                       })
                     ) : (
                       <div className="text-center text-zinc-500 py-12 text-xs italic">
-                        No se registran métodos de pago hoy.
+                        No se registran mÃ©todos de pago hoy.
                       </div>
                     )}
                   </div>
@@ -3249,7 +3249,7 @@
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 font-mono">
               <div className="lg:col-span-2 space-y-6">
                 <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg">
-                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-6">Top 10 Productos Más Vendidos</h4>
+                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-6">Top 10 Productos MÃ¡s Vendidos</h4>
                   <div className="space-y-4">
                     {Object.keys(salesAnalytics.productCounts).length > 0 ? (
                       Object.entries(salesAnalytics.productCounts)
@@ -3272,21 +3272,21 @@
                         })
                     ) : (
                       <div className="text-center text-zinc-500 py-12 text-xs font-bold">
-                        No se registran ventas para mapear gráficos el día de hoy.
+                        No se registran ventas para mapear grÃ¡ficos el dÃ­a de hoy.
                       </div>
                     )}
                   </div>
                 </div>
 
                 <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg">
-                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Insumos y Almacén en Estado Crítico</h4>
+                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Insumos y AlmacÃ©n en Estado CrÃ­tico</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {lowStockItems.length > 0 ? (
                       lowStockItems.map(item => item && (
                         <div key={item.id} className="bg-brand-black/40 border border-amber-600/30 rounded-xl p-3 flex justify-between items-center">
                           <div>
                             <h5 className="font-bold text-xs text-white">{item.nombre}</h5>
-                            <span className="text-[10px] text-amber-500 font-bold">Mínimo: {item.stockMinimo} {item.unidad}</span>
+                            <span className="text-[10px] text-amber-500 font-bold">MÃ­nimo: {item.stockMinimo} {item.unidad}</span>
                           </div>
                           <span className="bg-amber-600/10 text-amber-500 text-xs font-black px-3 py-1.5 rounded-lg border border-amber-500/20">
                             {item.stock} {item.unidad}
@@ -3295,7 +3295,7 @@
                       ))
                     ) : (
                       <div className="col-span-2 text-center text-green-500 bg-green-950/20 border border-green-500/20 rounded-xl py-4 text-xs font-bold font-sans">
-                        ✓ El almacén se encuentra en niveles saludables.
+                        âœ“ El almacÃ©n se encuentra en niveles saludables.
                       </div>
                     )}
                   </div>
@@ -3308,7 +3308,7 @@
 
       const handleExportExcel = () => {
         if (typeof XLSX === 'undefined') {
-          showToast('No se pudo cargar el módulo de Excel', 'error');
+          showToast('No se pudo cargar el mÃ³dulo de Excel', 'error');
           return;
         }
         const wb = XLSX.utils.book_new();
@@ -3347,7 +3347,7 @@
         }), 'Inventario');
 
         XLSX.writeFile(wb, `OBPOS_${activeCompanyId}_${new Date().toISOString().slice(0,10)}.xlsx`);
-        logAction('Exportación completa a Excel');
+        logAction('ExportaciÃ³n completa a Excel');
         showToast('Archivo Excel generado correctamente', 'success');
       };
 
@@ -3446,7 +3446,7 @@
                 <div className="flex items-center justify-between gap-3 mb-4">
                   <div>
                     <h4 className="text-xs font-black uppercase text-white">Rentabilidad por producto</h4>
-                    <p className="text-[10px] text-zinc-500 mt-1">Información privada: costos estimados según receta y rendimiento.</p>
+                    <p className="text-[10px] text-zinc-500 mt-1">InformaciÃ³n privada: costos estimados segÃºn receta y rendimiento.</p>
                   </div>
                   <span className="text-[9px] font-black bg-red-950 text-red-300 border border-red-900 px-3 py-2 rounded-lg">
                     PRIVADO
@@ -3473,13 +3473,13 @@
                           </td>
                           <td className="py-3 px-4 text-right text-zinc-300">Bs {Number(p.precio || 0).toFixed(2)}</td>
                           <td className="py-3 px-4 text-right text-zinc-300">
-                            {p.hasRecipe ? `Bs ${p.estimatedCost.toFixed(2)}` : '—'}
+                            {p.hasRecipe ? `Bs ${p.estimatedCost.toFixed(2)}` : 'â€”'}
                           </td>
                           <td className="py-3 px-4 text-right font-black text-white">
-                            {p.hasRecipe ? `Bs ${p.profit.toFixed(2)}` : '—'}
+                            {p.hasRecipe ? `Bs ${p.profit.toFixed(2)}` : 'â€”'}
                           </td>
                           <td className="py-3 pl-4 text-right font-black">
-                            {p.hasRecipe ? `${p.margin.toFixed(1)}%` : '—'}
+                            {p.hasRecipe ? `${p.margin.toFixed(1)}%` : 'â€”'}
                           </td>
                         </tr>
                       ))}
@@ -3492,7 +3492,7 @@
             <div className="flex justify-end">
               <button onClick={handleExportExcel}
                 className="bg-green-950 hover:bg-green-900 border border-green-800 text-green-300 text-xs font-black px-4 py-3 rounded-xl active-scale">
-                📥 Exportar Excel
+                ðŸ“¥ Exportar Excel
               </button>
             </div>
             <div className="flex gap-4 border-b border-zinc-800 pb-3 shrink-0 font-mono">
@@ -3504,7 +3504,7 @@
                     : 'text-zinc-400 hover:text-white bg-brand-dark/50'
                 }`}
               >
-                📊 Gráficas
+                ðŸ“Š GrÃ¡ficas
               </button>
               <button 
                 onClick={() => setReportSubTab('HISTORIAL')}
@@ -3514,7 +3514,7 @@
                     : 'text-zinc-400 hover:text-white bg-brand-dark/50'
                 }`}
               >
-                🧾 Historial de Ventas
+                ðŸ§¾ Historial de Ventas
               </button>
             </div>
 
@@ -3523,7 +3523,7 @@
                 <div className="space-y-6 fade-in">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg">
-                      <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Productos más vendidos</h4>
+                      <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Productos mÃ¡s vendidos</h4>
                       <div className="space-y-3">
                         {(() => {
                           const productMap = {};
@@ -3581,7 +3581,7 @@
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg">
-                      <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Ventas por Categoría</h4>
+                      <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Ventas por CategorÃ­a</h4>
                       <div className="space-y-3">
                         {Object.entries(reportByCategory).map(([cat, total]) => (
                           <div key={cat} className="flex justify-between items-center py-2 border-b border-zinc-800 text-xs">
@@ -3593,7 +3593,7 @@
                     </div>
 
                     <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg">
-                      <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Métricas por Método de Pago</h4>
+                      <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">MÃ©tricas por MÃ©todo de Pago</h4>
                       <div className="space-y-3">
                         {Object.entries(reportByPaymentMethod).map(([method, total]) => (
                           <div key={method} className="flex justify-between items-center py-2 border-b border-zinc-800 text-xs">
@@ -3663,7 +3663,7 @@
                     )}
 
                     <div>
-                      <label className="text-[9px] uppercase font-bold text-zinc-500 block mb-1">Método Pago</label>
+                      <label className="text-[9px] uppercase font-bold text-zinc-500 block mb-1">MÃ©todo Pago</label>
                       <select 
                         value={historyFilters.metodoPago}
                         onChange={(e) => setHistoryFilters(prev => ({ ...prev, metodoPago: e.target.value }))}
@@ -3682,11 +3682,11 @@
                     <table className="w-full text-left border-collapse text-xs">
                       <thead>
                         <tr className="border-b border-zinc-800 text-zinc-500 font-extrabold text-[10px]">
-                          <th className="py-2 px-1">Número</th>
+                          <th className="py-2 px-1">NÃºmero</th>
                           <th className="py-2 px-1">Fecha/Hora</th>
                           <th className="py-2 px-1">Usuario</th>
-                          <th className="py-2 px-1">Identificación</th>
-                          <th className="py-2 px-1">Método</th>
+                          <th className="py-2 px-1">IdentificaciÃ³n</th>
+                          <th className="py-2 px-1">MÃ©todo</th>
                           <th className="py-2 px-1 text-right">Total</th>
                           <th className="py-2 px-1 text-center">Acciones</th>
                         </tr>
@@ -3757,14 +3757,14 @@
           ));
           if (!silent) showToast(`${ingredient.nombre}: ${delta > 0 ? '+' : ''}${delta}`, 'success');
         } catch (error) {
-          showToast('Error de conexión al actualizar stock', 'error');
+          showToast('Error de conexiÃ³n al actualizar stock', 'error');
         }
       };
 
       const editCloudIngredient = async (ingredient) => {
         const nombre = window.prompt('Nombre del insumo:', ingredient.nombre);
         if (nombre === null) return;
-        const stockMinimo = window.prompt('Stock mínimo:', ingredient.stockMinimo);
+        const stockMinimo = window.prompt('Stock mÃ­nimo:', ingredient.stockMinimo);
         if (stockMinimo === null) return;
         const costoUnitario = window.prompt('Costo unitario (Bs):', ingredient.costoUnitario);
         if (costoUnitario === null) return;
@@ -3802,14 +3802,14 @@
           ));
           showToast('Insumo actualizado en la nube', 'success');
         } catch (error) {
-          showToast('Error de conexión al editar el insumo', 'error');
+          showToast('Error de conexiÃ³n al editar el insumo', 'error');
         }
       };
 
       const deleteCloudIngredient = (ingredient) => {
         showConfirmation(
-          '¿Eliminar insumo?',
-          `¿Deseas eliminar "${ingredient.nombre}" del inventario?`,
+          'Â¿Eliminar insumo?',
+          `Â¿Deseas eliminar "${ingredient.nombre}" del inventario?`,
           async () => {
             try {
               const response = await fetch(
@@ -3832,7 +3832,7 @@
               setIngredients(prev => prev.filter(i => i && i.id !== ingredient.id));
               showToast(`${ingredient.nombre} eliminado`, 'warning');
             } catch (error) {
-              showToast('Error de conexión al eliminar el insumo', 'error');
+              showToast('Error de conexiÃ³n al eliminar el insumo', 'error');
             }
           }
         );
@@ -3888,7 +3888,7 @@
           setSupplierForm({ nombre: '', telefono: '', direccion: '' });
           showToast('Proveedor guardado en la nube', 'success');
         } catch {
-          showToast('Error de conexión al guardar proveedor', 'error');
+          showToast('Error de conexiÃ³n al guardar proveedor', 'error');
         }
       };
 
@@ -3928,8 +3928,8 @@
           const result = await response.json();
 
           if (!response.ok) {
-            console.error('Error transacción compra:', result);
-            showToast('La compra no se aplicó. Ningún dato fue modificado.', 'error');
+            console.error('Error transacciÃ³n compra:', result);
+            showToast('La compra no se aplicÃ³. NingÃºn dato fue modificado.', 'error');
             return;
           }
 
@@ -3977,9 +3977,9 @@
             'success'
           );
         } catch (error) {
-          console.error('Error de conexión en compra:', error);
+          console.error('Error de conexiÃ³n en compra:', error);
           showToast(
-            'Error de conexión. La operación no fue confirmada.',
+            'Error de conexiÃ³n. La operaciÃ³n no fue confirmada.',
             'error'
           );
         }
@@ -4007,14 +4007,14 @@
           });
           const rows = await response.json();
           if (!response.ok || !rows?.length) {
-            showToast('No se pudo guardar. Verifica que el ingrediente no esté repetido.', 'error');
+            showToast('No se pudo guardar. Verifica que el ingrediente no estÃ© repetido.', 'error');
             return;
           }
           setCloudRecipes(prev => [...prev, rows[0]]);
           setRecipeForm(prev => ({ ...prev, inventarioId: '', cantidad: '' }));
-          showToast('Ingrediente añadido a la receta', 'success');
+          showToast('Ingrediente aÃ±adido a la receta', 'success');
         } catch {
-          showToast('Error de conexión al guardar receta', 'error');
+          showToast('Error de conexiÃ³n al guardar receta', 'error');
         }
       };
 
@@ -4046,7 +4046,7 @@
           setRecipeEditAmounts(prev => ({ ...prev, [recipe.id]: '' }));
           showToast('Cantidad de receta actualizada', 'success');
         } catch {
-          showToast('Error de conexión al actualizar receta', 'error');
+          showToast('Error de conexiÃ³n al actualizar receta', 'error');
         }
       };
 
@@ -4063,16 +4063,16 @@
           setCloudRecipes(prev => prev.filter(r => r.id !== recipe.id));
           showToast('Ingrediente quitado de la receta', 'success');
         } catch {
-          showToast('Error de conexión', 'error');
+          showToast('Error de conexiÃ³n', 'error');
         }
       };
 
       const handleEditSupplier = async (supplier) => {
         const nombre = window.prompt('Nombre del proveedor:', supplier.nombre);
         if (nombre === null || !nombre.trim()) return;
-        const telefono = window.prompt('Teléfono:', supplier.telefono || '');
+        const telefono = window.prompt('TelÃ©fono:', supplier.telefono || '');
         if (telefono === null) return;
-        const direccion = window.prompt('Dirección:', supplier.direccion || '');
+        const direccion = window.prompt('DirecciÃ³n:', supplier.direccion || '');
         if (direccion === null) return;
 
         try {
@@ -4098,12 +4098,12 @@
           ));
           showToast('Proveedor actualizado', 'success');
         } catch {
-          showToast('Error de conexión al actualizar proveedor', 'error');
+          showToast('Error de conexiÃ³n al actualizar proveedor', 'error');
         }
       };
 
       const handleDisableSupplier = async (supplier) => {
-        if (!window.confirm(`¿Desactivar a ${supplier.nombre}?`)) return;
+        if (!window.confirm(`Â¿Desactivar a ${supplier.nombre}?`)) return;
         try {
           const response = await fetch(
             `${SUPABASE_URL}/rest/v1/proveedores?id=eq.${supplier.id}&empresa_id=eq.${encodeURIComponent(activeCompanyId)}`,
@@ -4120,7 +4120,7 @@
           setSuppliers(prev => prev.filter(p => p.id !== supplier.id));
           showToast('Proveedor desactivado', 'success');
         } catch {
-          showToast('Error de conexión al desactivar proveedor', 'error');
+          showToast('Error de conexiÃ³n al desactivar proveedor', 'error');
         }
       };
 
@@ -4141,8 +4141,8 @@
           <div className="p-6 overflow-y-auto h-full space-y-6 no-scrollbar bg-brand-black fade-in text-left font-mono">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-800 pb-4">
               <div>
-                <h3 className="text-base font-black tracking-wider text-white">REPOSICIÓN DE STOCK Y CONTROL DE INGREDIENTES</h3>
-                <p className="text-xs text-zinc-500">Maneja directamente el inventario físico utilizado por las recetas.</p>
+                <h3 className="text-base font-black tracking-wider text-white">REPOSICIÃ“N DE STOCK Y CONTROL DE INGREDIENTES</h3>
+                <p className="text-xs text-zinc-500">Maneja directamente el inventario fÃ­sico utilizado por las recetas.</p>
               </div>
             </div>
 
@@ -4188,10 +4188,10 @@
                     <input required placeholder="Nombre del proveedor" value={supplierForm.nombre}
                       onChange={e => setSupplierForm({...supplierForm, nombre:e.target.value})}
                       className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
-                    <input placeholder="Teléfono" value={supplierForm.telefono}
+                    <input placeholder="TelÃ©fono" value={supplierForm.telefono}
                       onChange={e => setSupplierForm({...supplierForm, telefono:e.target.value})}
                       className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
-                    <input placeholder="Dirección" value={supplierForm.direccion}
+                    <input placeholder="DirecciÃ³n" value={supplierForm.direccion}
                       onChange={e => setSupplierForm({...supplierForm, direccion:e.target.value})}
                       className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                     <button type="submit" className="w-full bg-zinc-800 text-white text-xs font-black rounded-xl p-3">
@@ -4208,7 +4208,7 @@
             {currentUser?.rol === 'Administrador' && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-5">
-                  <h4 className="font-black text-xs uppercase text-white mb-4">Gestión de proveedores</h4>
+                  <h4 className="font-black text-xs uppercase text-white mb-4">GestiÃ³n de proveedores</h4>
                   <div className="space-y-2 max-h-80 overflow-y-auto custom-scrollbar">
                     {suppliers.length === 0 ? (
                       <p className="text-xs text-zinc-500 text-center py-5">No hay proveedores activos.</p>
@@ -4217,8 +4217,8 @@
                         <div className="flex justify-between items-start gap-3">
                           <div>
                             <p className="text-xs font-black text-white">{supplier.nombre}</p>
-                            <p className="text-[9px] text-zinc-500">{supplier.telefono || 'Sin teléfono'}</p>
-                            <p className="text-[9px] text-zinc-600">{supplier.direccion || 'Sin dirección'}</p>
+                            <p className="text-[9px] text-zinc-500">{supplier.telefono || 'Sin telÃ©fono'}</p>
+                            <p className="text-[9px] text-zinc-600">{supplier.direccion || 'Sin direcciÃ³n'}</p>
                           </div>
                           <div className="flex gap-1">
                             <button onClick={() => handleEditSupplier(supplier)}
@@ -4268,11 +4268,11 @@
                           <div className="flex justify-between gap-3">
                             <div>
                               <p className="text-xs font-black text-white">{item?.nombre || `Producto #${c.inventario_id}`}</p>
-                              <p className="text-[9px] text-zinc-500">{supplier?.nombre || 'Sin proveedor'} · {new Date(c.fecha).toLocaleDateString('es-BO')}</p>
+                              <p className="text-[9px] text-zinc-500">{supplier?.nombre || 'Sin proveedor'} Â· {new Date(c.fecha).toLocaleDateString('es-BO')}</p>
                             </div>
                             <p className="text-xs font-black text-amber-500">Bs {Number(c.total || 0).toFixed(2)}</p>
                           </div>
-                          <p className="text-[9px] text-zinc-500 mt-1">{Number(c.cantidad)} × Bs {Number(c.costo_unitario).toFixed(2)}</p>
+                          <p className="text-[9px] text-zinc-500 mt-1">{Number(c.cantidad)} Ã— Bs {Number(c.costo_unitario).toFixed(2)}</p>
                         </div>
                       );
                     })}
@@ -4318,7 +4318,7 @@
                         const hasRecipe = cloudRecipes.some(r => Number(r.producto_id) === Number(pid));
                         return (
                           <option key={p.id} value={pid}>
-                            {hasRecipe ? '✓ ' : '⚠ '} {p.nombre}
+                            {hasRecipe ? 'âœ“ ' : 'âš  '} {p.nombre}
                           </option>
                         );
                       })}
@@ -4332,7 +4332,7 @@
                           onChange={e => setRecipeForm({ ...recipeForm, inventarioId: e.target.value })}
                           className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white"
                         >
-                          <option value="">Añadir ingrediente</option>
+                          <option value="">AÃ±adir ingrediente</option>
                           {activeCompanyIngredients
                             .filter(i => !cloudRecipes.some(r =>
                               String(r.producto_id) === String(recipeForm.productoId) &&
@@ -4357,7 +4357,7 @@
                         />
 
                         <button type="submit" className="w-full bg-brand-red text-white text-xs font-black rounded-xl p-3">
-                          + Añadir ingrediente
+                          + AÃ±adir ingrediente
                         </button>
                       </form>
                     )}
@@ -4395,8 +4395,8 @@
                           <div className="space-y-2">
                             {selectedRecipes.length === 0 ? (
                               <div className="border border-dashed border-amber-900/50 bg-amber-950/10 rounded-xl p-6 text-center">
-                                <p className="text-xs font-black text-amber-400">Este plato todavía no descuenta inventario.</p>
-                                <p className="text-[10px] text-zinc-500 mt-1">Añade sus ingredientes desde el formulario.</p>
+                                <p className="text-xs font-black text-amber-400">Este plato todavÃ­a no descuenta inventario.</p>
+                                <p className="text-[10px] text-zinc-500 mt-1">AÃ±ade sus ingredientes desde el formulario.</p>
                               </div>
                             ) : selectedRecipes.map(r => {
                               const ing = activeCompanyIngredients.find(i =>
@@ -4408,7 +4408,7 @@
                                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                                     <div>
                                       <p className="text-xs font-black text-white">{ing?.nombre || `Ingrediente #${r.inventario_id}`}</p>
-                                      <p className="text-[9px] text-zinc-500">Consumo por 1 plato · porciones</p>
+                                      <p className="text-[9px] text-zinc-500">Consumo por 1 plato Â· porciones</p>
                                     </div>
 
                                     <div className="flex items-center gap-2">
@@ -4451,7 +4451,7 @@
                       const pid = Number(p.cloudId || String(p.id).replace('cloud-', ''));
                       return !cloudRecipes.some(r => Number(r.producto_id) === pid);
                     }).length === 0 ? (
-                      <span className="text-[10px] text-green-400 font-black">✓ Todos los productos tienen receta configurada.</span>
+                      <span className="text-[10px] text-green-400 font-black">âœ“ Todos los productos tienen receta configurada.</span>
                     ) : activeCompanyProducts.filter(p => {
                       const pid = Number(p.cloudId || String(p.id).replace('cloud-', ''));
                       return !cloudRecipes.some(r => Number(r.producto_id) === pid);
@@ -4465,7 +4465,7 @@
                         })}
                         className="bg-amber-950/40 border border-amber-900/50 text-amber-300 text-[9px] font-black px-3 py-2 rounded-lg"
                       >
-                        ⚠ {p.nombre}
+                        âš  {p.nombre}
                       </button>
                     ))}
                   </div>
@@ -4490,7 +4490,7 @@
 
             {(stockAlerts.lowStock.length > 0 || stockAlerts.exhausted.length > 0) && (
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-5">
-                <h4 className="font-black text-xs uppercase text-white mb-4">⚠️ Reposición pendiente</h4>
+                <h4 className="font-black text-xs uppercase text-white mb-4">âš ï¸ ReposiciÃ³n pendiente</h4>
                 <div className="space-y-2">
                   {[...stockAlerts.exhausted, ...stockAlerts.lowStock].map(item => {
                     const current = Number(item.stock_actual ?? item.stock ?? item.cantidad ?? 0);
@@ -4499,7 +4499,7 @@
                       <div key={`alert-${item.id}`} className="flex justify-between items-center bg-brand-black/40 border border-zinc-800 rounded-xl p-3">
                         <div>
                           <p className="text-xs font-black text-white">{item.nombre}</p>
-                          <p className="text-[9px] text-zinc-500">Mínimo: {minimum} {item.unidad || ''}</p>
+                          <p className="text-[9px] text-zinc-500">MÃ­nimo: {minimum} {item.unidad || ''}</p>
                           <p className="text-[9px] text-zinc-400 mt-1">
                             Porciones disponibles: {(current * Number(item.porciones_por_unidad ?? item.porcionesPorUnidad ?? 1)).toFixed(1)}
                           </p>
@@ -4509,7 +4509,7 @@
                             {current <= 0 ? 'AGOTADO' : `${current} ${item.unidad || ''}`}
                           </span>
                           <span className="text-[9px] text-zinc-500">
-                            ≈ {(current * Number(item.porciones_por_unidad ?? item.porcionesPorUnidad ?? 1)).toFixed(1)} porciones
+                            â‰ˆ {(current * Number(item.porciones_por_unidad ?? item.porcionesPorUnidad ?? 1)).toFixed(1)} porciones
                           </span>
                         </div>
                       </div>
@@ -4590,7 +4590,7 @@
                       />
                     </div>
                     <div>
-                      <label className="text-[9px] uppercase font-bold text-zinc-500 block mb-1">Mínimo Alerta</label>
+                      <label className="text-[9px] uppercase font-bold text-zinc-500 block mb-1">MÃ­nimo Alerta</label>
                       <input 
                         type="number"
                         placeholder="5"
@@ -4644,7 +4644,7 @@
                               onClick={() => {
                                 const amount = Number(stockExactAmounts[ing.id]);
                                 if (!amount || amount <= 0) {
-                                  showToast('Ingresa una cantidad válida', 'error');
+                                  showToast('Ingresa una cantidad vÃ¡lida', 'error');
                                   return;
                                 }
                                 updateCloudInventoryStock(ing, -amount);
@@ -4652,13 +4652,13 @@
                               }}
                               className="bg-red-950 hover:bg-red-900 text-red-300 text-[9px] px-2 py-1.5 rounded"
                             >
-                              − Quitar
+                              âˆ’ Quitar
                             </button>
                             <button
                               onClick={() => {
                                 const amount = Number(stockExactAmounts[ing.id]);
                                 if (!amount || amount <= 0) {
-                                  showToast('Ingresa una cantidad válida', 'error');
+                                  showToast('Ingresa una cantidad vÃ¡lida', 'error');
                                   return;
                                 }
                                 updateCloudInventoryStock(ing, amount);
@@ -4666,7 +4666,7 @@
                               }}
                               className="bg-green-950 hover:bg-green-900 text-green-300 text-[9px] px-2 py-1.5 rounded"
                             >
-                              + Añadir
+                              + AÃ±adir
                             </button>
                             <button
                               onClick={() => editCloudIngredient(ing)}
@@ -4697,7 +4697,7 @@
           <div className="p-6 overflow-y-auto h-full space-y-6 no-scrollbar bg-brand-black fade-in text-left font-mono">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-800 pb-4">
               <div>
-                <h3 className="text-base font-black tracking-wider text-white font-mono">💰 REGISTRO DE GASTOS DIARIOS</h3>
+                <h3 className="text-base font-black tracking-wider text-white font-mono">ðŸ’° REGISTRO DE GASTOS DIARIOS</h3>
                 <p className="text-xs text-zinc-500">Monitorea y registra egresos de caja para el balance financiero.</p>
               </div>
               <div className="text-right">
@@ -4722,17 +4722,17 @@
                   </div>
 
                   <div>
-                    <label className="text-[10px] uppercase font-bold text-zinc-500 block mb-1">Categoría</label>
+                    <label className="text-[10px] uppercase font-bold text-zinc-500 block mb-1">CategorÃ­a</label>
                     <select
                       value={expenseForm.categoria}
                       onChange={(e) => setExpenseForm(prev => ({ ...prev, categoria: e.target.value }))}
                       className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-brand-red font-bold"
                     >
-                      <option value="Mercadería">🌽 Mercadería / Insumos</option>
-                      <option value="Servicios">⚡ Servicios Públicos</option>
-                      <option value="Alquiler">🏠 Alquiler de Local</option>
-                      <option value="Personal">👤 Sueldos / Adelantos</option>
-                      <option value="Otros">📦 Otros Gastos</option>
+                      <option value="MercaderÃ­a">ðŸŒ½ MercaderÃ­a / Insumos</option>
+                      <option value="Servicios">âš¡ Servicios PÃºblicos</option>
+                      <option value="Alquiler">ðŸ  Alquiler de Local</option>
+                      <option value="Personal">ðŸ‘¤ Sueldos / Adelantos</option>
+                      <option value="Otros">ðŸ“¦ Otros Gastos</option>
                     </select>
                   </div>
 
@@ -4750,7 +4750,7 @@
                   </div>
 
                   <div>
-                    <label className="text-[10px] uppercase font-bold text-zinc-500 block mb-1">Descripción / Detalle</label>
+                    <label className="text-[10px] uppercase font-bold text-zinc-500 block mb-1">DescripciÃ³n / Detalle</label>
                     <textarea
                       placeholder="Ej. Compra de insumos..."
                       value={expenseForm.descripcion}
@@ -4777,8 +4777,8 @@
                     <thead>
                       <tr className="border-b border-zinc-800 text-zinc-500 font-extrabold">
                         <th className="py-3 px-2">Fecha</th>
-                        <th className="py-3 px-2">Categoría</th>
-                        <th className="py-3 px-2">Descripción</th>
+                        <th className="py-3 px-2">CategorÃ­a</th>
+                        <th className="py-3 px-2">DescripciÃ³n</th>
                         <th className="py-3 px-2 text-right">Monto</th>
                         <th className="py-3 px-2 text-center">Acciones</th>
                       </tr>
@@ -4795,7 +4795,7 @@
                               onClick={() => handleDeleteExpense(exp.id)}
                               className="text-zinc-500 hover:text-brand-red text-xs p-1"
                             >
-                              🗑
+                              ðŸ—‘
                             </button>
                           </td>
                         </tr>
@@ -4816,7 +4816,7 @@
         const password = cashierForm.password.trim();
 
         if (!nombre || !email || password.length < 6) {
-          showToast('Ingresa nombre, correo y contraseña de al menos 6 caracteres', 'error');
+          showToast('Ingresa nombre, correo y contraseÃ±a de al menos 6 caracteres', 'error');
           return;
         }
 
@@ -4848,8 +4848,8 @@
           setCashierForm({ nombre: '', email: '', password: '' });
           showToast(`${nombre} creado con acceso individual`, 'success');
         } catch (error) {
-          console.error('Error conexión crear cajero:', error);
-          showToast('Error de conexión al crear cajero', 'error');
+          console.error('Error conexiÃ³n crear cajero:', error);
+          showToast('Error de conexiÃ³n al crear cajero', 'error');
         }
       };
 
@@ -4875,18 +4875,18 @@
           ));
           showToast(nextActive ? 'Cajero activado' : 'Cajero desactivado', 'success');
         } catch (error) {
-          showToast('Error de conexión al actualizar cajero', 'error');
+          showToast('Error de conexiÃ³n al actualizar cajero', 'error');
         }
       };
 
       const handleMigrateCashierAuth = async (profile) => {
         const email = window.prompt(`Correo para ${profile.nombre}:`);
         if (email === null) return;
-        const password = window.prompt(`Contraseña inicial para ${profile.nombre} (mínimo 6 caracteres):`);
+        const password = window.prompt(`ContraseÃ±a inicial para ${profile.nombre} (mÃ­nimo 6 caracteres):`);
         if (password === null) return;
 
         if (!email.trim() || password.trim().length < 6) {
-          showToast('Ingresa un correo válido y contraseña de al menos 6 caracteres', 'error');
+          showToast('Ingresa un correo vÃ¡lido y contraseÃ±a de al menos 6 caracteres', 'error');
           return;
         }
 
@@ -4919,19 +4919,19 @@
 
           showToast(`${profile.nombre} migrado a Auth correctamente`, 'success');
         } catch (error) {
-          console.error('Error migración Auth:', error);
-          showToast('Error de conexión al migrar perfil', 'error');
+          console.error('Error migraciÃ³n Auth:', error);
+          showToast('Error de conexiÃ³n al migrar perfil', 'error');
         }
       };
 
       const handleChangeCashierPassword = async (profile) => {
-        const password = window.prompt(`Nueva contraseña para ${profile.nombre}:`);
+        const password = window.prompt(`Nueva contraseÃ±a para ${profile.nombre}:`);
         if (password === null) return;
 
         const cleanPassword = password.trim();
 
         if (cleanPassword.length < 6) {
-          showToast('La contraseña debe tener al menos 6 caracteres', 'error');
+          showToast('La contraseÃ±a debe tener al menos 6 caracteres', 'error');
           return;
         }
 
@@ -4952,20 +4952,20 @@
 
           if (!response.ok || !result.success) {
             showToast(
-              result.error || 'No se pudo cambiar la contraseña del cajero',
+              result.error || 'No se pudo cambiar la contraseÃ±a del cajero',
               'error'
             );
             return;
           }
 
           showToast(
-            `Contraseña Auth de ${profile.nombre} actualizada`,
+            `ContraseÃ±a Auth de ${profile.nombre} actualizada`,
             'success'
           );
         } catch (error) {
-          console.error('Error al cambiar contraseña Auth:', error);
+          console.error('Error al cambiar contraseÃ±a Auth:', error);
           showToast(
-            'Error de conexión al cambiar contraseña',
+            'Error de conexiÃ³n al cambiar contraseÃ±a',
             'error'
           );
         }
@@ -4981,7 +4981,7 @@
                   configSubTab === 'LOGO' ? 'bg-brand-red text-white' : 'text-zinc-400 bg-brand-dark/50'
                 }`}
               >
-                🖼 Identidad y Logo
+                ðŸ–¼ Identidad y Logo
               </button>
               <button 
                 onClick={() => setConfigSubTab('DATOS')}
@@ -4989,7 +4989,7 @@
                   configSubTab === 'DATOS' ? 'bg-brand-red text-white' : 'text-zinc-400 bg-brand-dark/50'
                 }`}
               >
-                🏠 Datos del Local
+                ðŸ  Datos del Local
               </button>
               <button 
                 onClick={() => setConfigSubTab('MENU')}
@@ -4997,7 +4997,7 @@
                   configSubTab === 'MENU' ? 'bg-brand-red text-white' : 'text-zinc-400 bg-brand-dark/50'
                 }`}
               >
-                📋 Gestión del Menú
+                ðŸ“‹ GestiÃ³n del MenÃº
               </button>
               {currentUser?.rol === 'Administrador' && (
                 <button
@@ -5006,7 +5006,7 @@
                     configSubTab === 'REPORTES' ? 'bg-brand-red text-white' : 'text-zinc-400 bg-brand-dark/50'
                   }`}
                 >
-                  📊 Reportes
+                  ðŸ“Š Reportes
                 </button>
               )}
               {currentUser?.rol === 'Administrador' && (
@@ -5016,7 +5016,7 @@
                     configSubTab === 'CAJEROS' ? 'bg-brand-red text-white' : 'text-zinc-400 bg-brand-dark/50'
                   }`}
                 >
-                  👥 Cajeros
+                  ðŸ‘¥ Cajeros
                 </button>
               )}
               {currentUser?.rol === 'Administrador' && (
@@ -5026,7 +5026,7 @@
                     configSubTab === 'CLAVE' ? 'bg-brand-red text-white' : 'text-zinc-400 bg-brand-dark/50'
                   }`}
                 >
-                  🔐 Mi Contraseña
+                  ðŸ” Mi ContraseÃ±a
                 </button>
               )}
               <button 
@@ -5035,7 +5035,7 @@
                   configSubTab === 'SISTEMA' ? 'bg-brand-red text-white' : 'text-zinc-400 bg-brand-dark/50'
                 }`}
               >
-                💾 Copias de Seguridad
+                ðŸ’¾ Copias de Seguridad
               </button>
             </div>
 
@@ -5115,7 +5115,7 @@
                     </div>
 
                     <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-5">
-                      <h4 className="font-black text-xs uppercase text-white mb-4">Métodos de pago</h4>
+                      <h4 className="font-black text-xs uppercase text-white mb-4">MÃ©todos de pago</h4>
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                         {paymentTotals.map(item => (
                           <div key={item.method} className="bg-brand-black/40 border border-zinc-800 rounded-xl p-3">
@@ -5214,7 +5214,7 @@
                       />
                       <input required type="password" value={cashierForm.password}
                         onChange={e => setCashierForm({...cashierForm, password:e.target.value})}
-                        placeholder="Contraseña"
+                        placeholder="ContraseÃ±a"
                         className="bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                       <button type="submit"
                         className="bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black px-5 py-3 rounded-xl uppercase tracking-wider active-scale">
@@ -5263,14 +5263,14 @@
                   <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Historial de cierres de caja</h4>
                   <div className="space-y-3 max-h-[420px] overflow-y-auto custom-scrollbar">
                     {registerHistory.filter(r => r.empresaId === activeCompanyId).length === 0 ? (
-                      <p className="text-xs text-zinc-500 text-center py-6">No hay cierres guardados todavía.</p>
+                      <p className="text-xs text-zinc-500 text-center py-6">No hay cierres guardados todavÃ­a.</p>
                     ) : registerHistory.filter(r => r.empresaId === activeCompanyId).map(cierre => (
                       <div key={cierre.id} className="bg-brand-black/40 border border-zinc-800 rounded-xl p-4">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                           <div>
                             <p className="text-sm font-black text-white">{cierre.abiertoPor}</p>
                             <p className="text-[10px] text-zinc-500 font-bold">
-                              {new Date(cierre.rawDate).toLocaleString('es-BO')} → {cierre.closedAt ? new Date(cierre.closedAt).toLocaleString('es-BO') : ''}
+                              {new Date(cierre.rawDate).toLocaleString('es-BO')} â†’ {cierre.closedAt ? new Date(cierre.closedAt).toLocaleString('es-BO') : ''}
                             </p>
                           </div>
                           <span className={`text-xs font-black ${cierre.diferencia < 0 ? 'text-red-500' : cierre.diferencia > 0 ? 'text-amber-500' : 'text-green-500'}`}>
@@ -5291,24 +5291,24 @@
 
               {configSubTab === 'CLAVE' && currentUser?.rol === 'Administrador' && (
                 <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg max-w-xl fade-in">
-                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-2">Cambiar contraseña del Administrador</h4>
-                  <p className="text-[10px] text-zinc-500 mb-5">Este cambio afecta únicamente al perfil Administrador de {activeCompany?.nombre || 'la empresa actual'}.</p>
+                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-2">Cambiar contraseÃ±a del Administrador</h4>
+                  <p className="text-[10px] text-zinc-500 mb-5">Este cambio afecta Ãºnicamente al perfil Administrador de {activeCompany?.nombre || 'la empresa actual'}.</p>
                   <form onSubmit={handleChangeAdminPassword} className="space-y-4">
                     <input required type="password" value={adminPasswordForm.actual}
                       onChange={e => setAdminPasswordForm({...adminPasswordForm, actual:e.target.value})}
-                      placeholder="Contraseña actual"
+                      placeholder="ContraseÃ±a actual"
                       className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                     <input required type="password" value={adminPasswordForm.nueva}
                       onChange={e => setAdminPasswordForm({...adminPasswordForm, nueva:e.target.value})}
-                      placeholder="Nueva contraseña"
+                      placeholder="Nueva contraseÃ±a"
                       className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                     <input required type="password" value={adminPasswordForm.confirmar}
                       onChange={e => setAdminPasswordForm({...adminPasswordForm, confirmar:e.target.value})}
-                      placeholder="Confirmar nueva contraseña"
+                      placeholder="Confirmar nueva contraseÃ±a"
                       className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                     <button type="submit"
                       className="bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black px-5 py-3 rounded-xl uppercase tracking-wider active-scale">
-                      Guardar nueva contraseña
+                      Guardar nueva contraseÃ±a
                     </button>
                   </form>
                 </div>
@@ -5316,7 +5316,7 @@
 
               {configSubTab === 'LOGO' && (
                 <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg max-w-2xl fade-in">
-                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">Personalización del Logotipo</h4>
+                  <h4 className="font-extrabold text-xs uppercase tracking-wider text-white mb-4">PersonalizaciÃ³n del Logotipo</h4>
                   <div className="flex flex-col md:flex-row items-center gap-6">
                     <div className="flex flex-col items-center gap-2 shrink-0">
                       <div className="w-36 h-36 bg-brand-black border border-zinc-800 rounded-2xl flex items-center justify-center p-3 shadow-inner overflow-hidden">
@@ -5324,14 +5324,14 @@
                           src={logoUrl} 
                           className="max-w-full max-h-full object-contain" 
                           alt="Logotipo Actual" 
-                          onError={(e) => { e.target.src = 'logo.png' }}
+                          onError={(e) => { e.target.src = '/assets/obpos-logo.png' }}
                         />
                       </div>
                     </div>
                     <div className="flex-1 space-y-4">
                       <div className="flex flex-col sm:flex-row gap-2">
                         <label className="flex-1 cursor-pointer bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black py-3 px-4 rounded-xl text-center transition-all active-scale shadow-lg font-sans uppercase">
-                          <span>📁 Subir Logotipo</span>
+                          <span>ðŸ“ Subir Logotipo</span>
                           <input
                             type="file"
                             accept="image/*"
@@ -5344,8 +5344,8 @@
                                   const base64 = event.target.result;
                                   setLogoUrl(base64);
                                   localStorage.setItem('obelisco_logo_v3', base64);
-                                  logAction('Actualización de imagen de logotipo');
-                                  showToast('¡Logotipo de marca actualizado!', 'success');
+                                  logAction('ActualizaciÃ³n de imagen de logotipo');
+                                  showToast('Â¡Logotipo de marca actualizado!', 'success');
                                 };
                                 reader.readAsDataURL(file);
                               }
@@ -5372,7 +5372,7 @@
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] uppercase font-bold text-zinc-500 block mb-1">Teléfono</label>
+                      <label className="text-[10px] uppercase font-bold text-zinc-500 block mb-1">TelÃ©fono</label>
                       <input 
                         type="text" 
                         value={restaurantConfig.telefono}
@@ -5383,8 +5383,8 @@
                   </div>
                   <button 
                     onClick={() => {
-                      logAction('Actualización de configuraciones del local');
-                      showToast('Configuración guardada', 'success');
+                      logAction('ActualizaciÃ³n de configuraciones del local');
+                      showToast('ConfiguraciÃ³n guardada', 'success');
                     }}
                     className="bg-brand-red text-white text-xs font-black py-2.5 px-6 rounded-xl active-scale"
                   >
@@ -5452,7 +5452,7 @@
                       </div>
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <label className="text-[9px] uppercase font-bold text-zinc-500 block mb-1">Categoría</label>
+                          <label className="text-[9px] uppercase font-bold text-zinc-500 block mb-1">CategorÃ­a</label>
                           <select
                             value={newProductForm.categoria}
                             onChange={(e) => {
@@ -5462,10 +5462,10 @@
                             className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-2.5 text-xs text-white focus:outline-none"
                           >
                             {cloudCategories.length === 0 && (
-                              <option value="">Sin categorías</option>
+                              <option value="">Sin categorÃ­as</option>
                             )}
                             {cloudCategories.map(cat => (
-                              <option key={cat.id} value={cat.nombre}>{cat.emoji || '🍽️'} {cat.nombre}</option>
+                              <option key={cat.id} value={cat.nombre}>{cat.emoji || 'ðŸ½ï¸'} {cat.nombre}</option>
                             ))}
                           </select>
                         </div>
@@ -5475,18 +5475,18 @@
                         disabled={cloudCategories.length === 0}
                         className="w-full bg-brand-red hover:bg-brand-lightRed disabled:opacity-50 text-white text-xs font-black py-2.5 rounded-xl transition-all"
                       >
-                        Añadir al Menú
+                        AÃ±adir al MenÃº
                       </button>
                     </form>
                   <div className="mt-6 pt-5 border-t border-zinc-800">
                     <div className="flex items-center justify-between mb-3">
                       <div>
-                        <h4 className="font-extrabold text-xs uppercase tracking-wider text-white">Gestionar Categorías</h4>
-                        <p className="text-[10px] text-zinc-500 mt-1">Crea categorías para organizar el menú de esta empresa.</p>
+                        <h4 className="font-extrabold text-xs uppercase tracking-wider text-white">Gestionar CategorÃ­as</h4>
+                        <p className="text-[10px] text-zinc-500 mt-1">Crea categorÃ­as para organizar el menÃº de esta empresa.</p>
                       </div>
                     </div>
                     <div className="border border-zinc-800 rounded-xl p-3 space-y-2">
-                      <label className="text-[9px] uppercase font-bold text-zinc-500 block">Nueva categoría</label>
+                      <label className="text-[9px] uppercase font-bold text-zinc-500 block">Nueva categorÃ­a</label>
                       <div className="space-y-2">
                         <div className="w-full">
                           <div className="text-[9px] uppercase font-bold text-zinc-500 mb-2">Emoji: {newCategoryEmoji}</div>
@@ -5505,7 +5505,7 @@
                         </div>
                         <input
                           type="text"
-                          placeholder="Ej: Postres, Cafés, Combos"
+                          placeholder="Ej: Postres, CafÃ©s, Combos"
                           value={newCategoryName}
                           onChange={(e) => setNewCategoryName(e.target.value)}
                           className="flex-1 bg-brand-gray border border-zinc-700 rounded-xl p-2.5 text-xs text-white focus:outline-none"
@@ -5523,14 +5523,14 @@
                     <div className="flex flex-wrap gap-2 mt-3">
                       {cloudCategories.map(cat => (
                         <span key={`badge-${cat.id}`} className="bg-brand-gray border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-300 flex items-center gap-2">
-                          {cat.emoji || '🍽️'} {cat.nombre}
+                          {cat.emoji || 'ðŸ½ï¸'} {cat.nombre}
                           <button
                             type="button"
                             onClick={() => handleDeleteCategory(cat.id, cat.nombre)}
                             className="text-red-400 hover:text-red-300 font-bold"
-                            title="Eliminar categoría"
+                            title="Eliminar categorÃ­a"
                           >
-                            ✕
+                            âœ•
                           </button>
                         </span>
                       ))}
@@ -5558,7 +5558,7 @@
                                       onClick={() => handleDeleteProduct(p.id, p.nombre)}
                                       className="text-zinc-500 hover:text-brand-red"
                                     >
-                                      ✕
+                                      âœ•
                                     </button>
                                   </div>
                                 </div>
@@ -5579,10 +5579,10 @@
                       onClick={handleBackupSystem}
                       className="bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black py-2.5 rounded-xl transition-all font-sans uppercase tracking-wider"
                     >
-                      💾 Descargar Copia de Seguridad (JSON)
+                      ðŸ’¾ Descargar Copia de Seguridad (JSON)
                     </button>
                     <label className="bg-brand-gray hover:bg-zinc-800 text-white text-xs font-bold py-2.5 rounded-xl text-center cursor-pointer border border-zinc-700 active-scale font-sans uppercase tracking-wider">
-                      <span>📂 Importar Respaldo</span>
+                      <span>ðŸ“‚ Importar Respaldo</span>
                       <input type="file" accept=".json" className="hidden" onChange={handleRestoreSystem} />
                     </label>
                   </div>
@@ -5625,7 +5625,7 @@
 
             if (!response.ok || !result.success) {
               setCompanyError(
-                result.error || 'ID de empresa o contraseña incorrectos.'
+                result.error || 'ID de empresa o contraseÃ±a incorrectos.'
               );
               return;
             }
@@ -5694,7 +5694,7 @@
           } catch (error) {
             console.error('Error login empresa:', error);
             setCompanyError(
-              'No se pudo conectar con la nube. Revisa tu conexión a Internet.'
+              'No se pudo conectar con la nube. Revisa tu conexiÃ³n a Internet.'
             );
           }
         };
@@ -5723,13 +5723,13 @@
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-black uppercase text-zinc-500 block mb-1 font-mono">CONTRASEÑA</label>
+                  <label className="text-[10px] font-black uppercase text-zinc-500 block mb-1 font-mono">CONTRASEÃ‘A</label>
                   <div className="relative">
                     <input
                       type={showCompanyPass ? 'text' : 'password'}
                       value={companyPassField}
                       onChange={(e) => setCompanyPassField(e.target.value)}
-                      placeholder="••••••••"
+                      placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                       className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-brand-red font-bold tracking-widest font-mono"
                       required
                     />
@@ -5738,7 +5738,7 @@
                       onClick={() => setShowCompanyPass(!showCompanyPass)}
                       className="absolute right-3 top-3.5 text-zinc-400 hover:text-white text-[11px]"
                     >
-                      {showCompanyPass ? '🙈' : '👁️'}
+                      {showCompanyPass ? 'ðŸ™ˆ' : 'ðŸ‘ï¸'}
                     </button>
                   </div>
                 </div>
@@ -5765,7 +5765,7 @@
                   }}
                   className="text-zinc-600 hover:text-brand-red text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 transition-colors font-mono"
                 >
-                  ⚙️ ADMINISTRACIÓN OB POS
+                  âš™ï¸ ADMINISTRACIÃ“N OB POS
                 </button>
               </div>
             </div>
@@ -5904,7 +5904,7 @@
             setShowSuperAdminLogin(false);
             showToast('Super Admin conectado a la nube', 'success');
           } catch (error) {
-            setSuperAdminError('No se pudo conectar con Supabase. Revisa tu conexión.');
+            setSuperAdminError('No se pudo conectar con Supabase. Revisa tu conexiÃ³n.');
           }
         };
 
@@ -5912,8 +5912,8 @@
           <div className="min-h-screen bg-brand-black flex flex-col justify-center items-center p-6 font-mono text-left">
             <div className="bg-brand-dark border border-zinc-800 p-8 rounded-3xl w-full max-w-sm shadow-2xl">
               <div className="text-center mb-6">
-                <span className="text-4xl">🛡️</span>
-                <h1 className="font-black text-sm text-white uppercase tracking-widest mt-2">AUTENTICACIÓN SUPREMA</h1>
+                <span className="text-4xl">ðŸ›¡ï¸</span>
+                <h1 className="font-black text-sm text-white uppercase tracking-widest mt-2">AUTENTICACIÃ“N SUPREMA</h1>
                 <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider mt-1">Super Administrador OB POS</p>
               </div>
 
@@ -5932,12 +5932,12 @@
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-black uppercase text-zinc-500 block mb-1">Contraseña</label>
+                  <label className="text-[10px] font-black uppercase text-zinc-500 block mb-1">ContraseÃ±a</label>
                   <input
                     type="password"
                     value={superAdminPass}
                     onChange={(e) => setSuperAdminPass(e.target.value)}
-                    placeholder="••••••••"
+                    placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                     className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white focus:outline-none"
                     required
                   />
@@ -5963,7 +5963,7 @@
                 }}
                 className="w-full bg-zinc-800 hover:bg-brand-red hover:text-white text-zinc-400 text-[10px] font-black py-2 rounded-xl transition-all active-scale uppercase tracking-wider text-center mt-3 font-mono"
               >
-                ✕ Regresar a Empresa
+                âœ• Regresar a Empresa
               </button>
             </div>
           </div>
@@ -5977,7 +5977,7 @@
             <aside className="w-64 bg-brand-dark border-r border-brand-gray flex flex-col justify-between h-full z-20 shrink-0 text-left">
               <div>
                 <div className="p-6 border-b border-brand-gray flex items-center gap-3 bg-brand-black/20">
-                  <span className="text-xl">🛡️</span>
+                  <span className="text-xl">ðŸ›¡ï¸</span>
                   <h1 className="font-black text-[11px] tracking-widest text-white uppercase font-mono">
                     SUPER ADMIN PANEL
                   </h1>
@@ -5992,7 +5992,7 @@
                         : 'text-zinc-400 hover:bg-brand-gray/50 hover:text-white'
                     }`}
                   >
-                    <span>🏠</span> <span className="text-sm">Inicio</span>
+                    <span>ðŸ </span> <span className="text-sm">Inicio</span>
                   </button>
                   <button 
                     onClick={() => setSuperAdminTab('EMPRESAS')}
@@ -6002,7 +6002,7 @@
                         : 'text-zinc-400 hover:bg-brand-gray/50 hover:text-white'
                     }`}
                   >
-                    <span>🏢</span> <span className="text-sm">Empresas</span>
+                    <span>ðŸ¢</span> <span className="text-sm">Empresas</span>
                   </button>
                 </nav>
               </div>
@@ -6011,7 +6011,7 @@
                   onClick={handleSuperAdminLogout}
                   className="w-full bg-red-950 hover:bg-brand-red text-red-400 hover:text-white text-xs font-black py-2.5 rounded-xl transition-all active-scale uppercase tracking-wider text-center"
                 >
-                  Cerrar Sesión ➔
+                  Cerrar SesiÃ³n âž”
                 </button>
               </div>
             </aside>
@@ -6020,7 +6020,7 @@
             <main className="flex-1 flex flex-col h-screen overflow-hidden bg-brand-black text-left">
               <header className="h-16 border-b border-brand-gray bg-brand-dark px-6 flex items-center justify-between shrink-0 font-mono">
                 <h2 className="text-base md:text-lg font-black tracking-wider text-white uppercase flex items-center gap-2">
-                  <span>👑</span> Panel General OB POS
+                  <span>ðŸ‘‘</span> Panel General OB POS
                 </h2>
                 <div className="flex items-center gap-3">
                   <span className="text-[10px] md:text-xs bg-brand-gray border border-zinc-700 px-3 py-1.5 rounded-full font-mono font-bold text-zinc-300">
@@ -6078,10 +6078,10 @@
 
                       <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-5 flex flex-col justify-between shadow-lg">
                         <div>
-                          <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Membresías próximas a vencer</span>
+                          <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">MembresÃ­as prÃ³ximas a vencer</span>
                           <h3 className="text-3xl font-black mt-1 text-amber-500">{companies.filter(c => Number(c.dias || 0) > 0 && Number(c.dias || 0) <= 30).length}</h3>
                         </div>
-                        <span className="text-[10px] text-zinc-500 font-bold mt-3">Vencimiento menor a 30 días</span>
+                        <span className="text-[10px] text-zinc-500 font-bold mt-3">Vencimiento menor a 30 dÃ­as</span>
                       </div>
                     </div>
 
@@ -6123,7 +6123,7 @@
                             <tr key={company.id} className="border-b border-zinc-800/50 hover:bg-brand-black/20">
                               <td className="py-3.5 font-bold text-white">{company.id}</td>
                               <td className="py-3.5 font-medium text-zinc-300">{company.nombre}</td>
-                              <td className="py-3.5 text-zinc-400">{company.plan} · {Number(company.dias || 0)} días</td>
+                              <td className="py-3.5 text-zinc-400">{company.plan} Â· {Number(company.dias || 0)} dÃ­as</td>
                               <td className="py-3.5">
                                 <span className={`text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider ${
                                   company.estado === 'ACTIVA'
@@ -6143,7 +6143,7 @@
                                     }}
                                     className="bg-brand-gray hover:bg-zinc-700 text-white text-[10px] font-black px-3.5 py-2 rounded-xl transition-all active-scale uppercase tracking-widest"
                                   >
-                                    👁 Ver datos
+                                    ðŸ‘ Ver datos
                                   </button>
                                   <button
                                     type="button"
@@ -6153,7 +6153,7 @@
                                     }}
                                     className="bg-green-950 hover:bg-green-900 text-green-400 text-[10px] font-black px-3 py-2 rounded-xl uppercase tracking-wider active-scale"
                                   >
-                                    + Días
+                                    + DÃ­as
                                   </button>
                                   <button
                                     type="button"
@@ -6163,7 +6163,7 @@
                                     }}
                                     className="bg-amber-950 hover:bg-amber-900 text-amber-400 text-[10px] font-black px-3 py-2 rounded-xl uppercase tracking-wider active-scale"
                                   >
-                                    − Días
+                                    âˆ’ DÃ­as
                                   </button>
                                   <button
                                     type="button"
@@ -6174,7 +6174,7 @@
                                         : 'bg-orange-950 hover:bg-orange-900 text-orange-400'
                                     }`}
                                   >
-                                    {company.estado === 'SUSPENDIDA' ? '▶ Reactivar' : '⏸ Suspender'}
+                                    {company.estado === 'SUSPENDIDA' ? 'â–¶ Reactivar' : 'â¸ Suspender'}
                                   </button>
                                   {company.id !== 'EMP-001' && (
                                     <button
@@ -6182,7 +6182,7 @@
                                       onClick={() => setDeleteCompanyId(company.id)}
                                       className="bg-red-950 hover:bg-red-900 text-red-400 text-[10px] font-black px-3 py-2 rounded-xl uppercase tracking-wider active-scale"
                                     >
-                                      🗑 Borrar
+                                      ðŸ—‘ Borrar
                                     </button>
                                   )}
                                   <button
@@ -6195,7 +6195,7 @@
                                   }}
                                   className="bg-brand-red hover:bg-brand-lightRed text-white text-[10px] font-black px-3.5 py-2 rounded-xl transition-all active-scale uppercase shadow-md shadow-brand-red/20 font-sans tracking-widest"
                                 >
-                                  🚀 Gestionar POS
+                                  ðŸš€ Gestionar POS
                                 </button>
                                 </div>
                               </td>
@@ -6213,13 +6213,13 @@
               <div className="bg-brand-dark border border-zinc-700 rounded-2xl w-full max-w-md shadow-2xl">
                 <div className="p-5 border-b border-zinc-800">
                   <h3 className="font-black text-white uppercase tracking-wider">
-                    {licenseModal.action === 'ADD' ? 'Añadir días' : 'Restar días'}
+                    {licenseModal.action === 'ADD' ? 'AÃ±adir dÃ­as' : 'Restar dÃ­as'}
                   </h3>
                   <p className="text-xs text-zinc-500 mt-1">{licenseModal.companyId}</p>
                 </div>
                 <form onSubmit={handleLicenseAdjustment} className="p-5 space-y-4">
                   <div className="bg-brand-black/40 border border-zinc-800 rounded-xl p-3 text-xs">
-                    Días actuales: <strong className="text-white">
+                    DÃ­as actuales: <strong className="text-white">
                       {Number(companies.find(c => c.id === licenseModal.companyId)?.dias || 0)}
                     </strong>
                   </div>
@@ -6230,7 +6230,7 @@
                     type="number"
                     value={licenseDaysInput}
                     onChange={e => setLicenseDaysInput(e.target.value)}
-                    placeholder="Cantidad de días"
+                    placeholder="Cantidad de dÃ­as"
                     className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white"
                   />
                   <div className="flex gap-3">
@@ -6252,10 +6252,10 @@
           {deleteCompanyId && (
             <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[70] flex items-center justify-center p-4">
               <div className="bg-brand-dark border border-red-900 rounded-2xl w-full max-w-md shadow-2xl p-6 text-center">
-                <div className="text-4xl mb-3">🗑️</div>
+                <div className="text-4xl mb-3">ðŸ—‘ï¸</div>
                 <h3 className="font-black text-white uppercase tracking-wider">Eliminar empresa</h3>
                 <p className="text-xs text-zinc-400 mt-3 leading-relaxed">
-                  ¿Confirmas eliminar {deleteCompanyId}? Esta acción quitará la empresa del Panel Super Admin.
+                  Â¿Confirmas eliminar {deleteCompanyId}? Esta acciÃ³n quitarÃ¡ la empresa del Panel Super Admin.
                 </p>
                 <div className="flex gap-3 mt-6">
                   <button type="button"
@@ -6278,7 +6278,7 @@
               <div className="bg-brand-dark border border-zinc-700 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl">
                 <div className="p-5 border-b border-zinc-800 flex items-center justify-between gap-3">
                   <div>
-                    <h3 className="font-black text-white uppercase tracking-wider">Información de Empresa</h3>
+                    <h3 className="font-black text-white uppercase tracking-wider">InformaciÃ³n de Empresa</h3>
                     <p className="text-xs text-zinc-500 mt-1">{selectedCompanyInfo.id}</p>
                   </div>
                   <button
@@ -6287,7 +6287,7 @@
                       setShowCompanySecrets(false);
                     }}
                     className="text-zinc-400 hover:text-white text-xl"
-                  >✕</button>
+                  >âœ•</button>
                 </div>
 
                 <div className="p-5 space-y-4">
@@ -6310,7 +6310,7 @@
                     </div>
                   </div>
                   <div className="bg-brand-black/40 border border-zinc-800 rounded-xl p-3">
-                    <p className="text-zinc-500 text-[9px] uppercase font-black">Última actividad registrada</p>
+                    <p className="text-zinc-500 text-[9px] uppercase font-black">Ãšltima actividad registrada</p>
                     <p className="text-white text-sm font-bold mt-1">
                       {companyCloudMetrics[selectedCompanyInfo.id]?.ultimaActividad
                         ? new Date(companyCloudMetrics[selectedCompanyInfo.id].ultimaActividad).toLocaleString('es-BO')
@@ -6328,7 +6328,7 @@
                       <p className="text-white font-bold mt-1">{selectedCompanyInfo.responsable || '-'}</p>
                     </div>
                     <div className="bg-brand-black/40 border border-zinc-800 rounded-xl p-3">
-                      <p className="text-zinc-500 text-[10px] uppercase">Teléfono</p>
+                      <p className="text-zinc-500 text-[10px] uppercase">TelÃ©fono</p>
                       <p className="text-white font-bold mt-1">{selectedCompanyInfo.telefono || '-'}</p>
                     </div>
                     <div className="bg-brand-black/40 border border-zinc-800 rounded-xl p-3">
@@ -6341,7 +6341,7 @@
                     </div>
                     <div className="bg-brand-black/40 border border-zinc-800 rounded-xl p-3">
                       <p className="text-zinc-500 text-[10px] uppercase">Licencia</p>
-                      <p className="text-white font-bold mt-1">{Number(selectedCompanyInfo.dias || 0)} días · {selectedCompanyInfo.plan || 'PRO'}</p>
+                      <p className="text-white font-bold mt-1">{Number(selectedCompanyInfo.dias || 0)} dÃ­as Â· {selectedCompanyInfo.plan || 'PRO'}</p>
                     </div>
                   </div>
 
@@ -6353,26 +6353,26 @@
                         onClick={() => setShowCompanySecrets(v => !v)}
                         className="text-[10px] font-black text-brand-red uppercase tracking-wider"
                       >
-                        {showCompanySecrets ? '🙈 Ocultar' : '👁 Mostrar'}
+                        {showCompanySecrets ? 'ðŸ™ˆ Ocultar' : 'ðŸ‘ Mostrar'}
                       </button>
                     </div>
 
                     <div className="bg-brand-black/40 rounded-xl p-3 text-xs">
                       <p className="text-zinc-500 text-[10px] uppercase">Acceso de empresa</p>
                       <p className="text-white mt-1">Usuario: <strong>{selectedCompanyInfo.id}</strong></p>
-                      <p className="text-white mt-1">Contraseña: <strong>{showCompanySecrets ? selectedCompanyInfo.password : '••••••••'}</strong></p>
+                      <p className="text-white mt-1">ContraseÃ±a: <strong>{showCompanySecrets ? selectedCompanyInfo.password : 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢'}</strong></p>
                     </div>
 
                     <div className="bg-brand-black/40 rounded-xl p-3 text-xs">
                       <p className="text-zinc-500 text-[10px] uppercase">Perfil Cajero</p>
                       <p className="text-white mt-1">Nombre: <strong>{selectedCompanyInfo.cajeroNombre || selectedCompanyInfo.nombre}</strong></p>
-                      <p className="text-zinc-400 mt-1">Acceso sin contraseña</p>
+                      <p className="text-zinc-400 mt-1">Acceso sin contraseÃ±a</p>
                     </div>
 
                     <div className="bg-brand-black/40 rounded-xl p-3 text-xs">
                       <p className="text-zinc-500 text-[10px] uppercase">Perfil Administrador</p>
                       <p className="text-white mt-1">Nombre: <strong>{selectedCompanyInfo.adminNombre || 'ADM'}</strong></p>
-                      <p className="text-white mt-1">Contraseña: <strong>{showCompanySecrets ? (selectedCompanyInfo.adminPin || (selectedCompanyInfo.id === 'EMP-001' ? 'Pietro101' : 'No configurada')) : '••••••••'}</strong></p>
+                      <p className="text-white mt-1">ContraseÃ±a: <strong>{showCompanySecrets ? (selectedCompanyInfo.adminPin || (selectedCompanyInfo.id === 'EMP-001' ? 'Pietro101' : 'No configurada')) : 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢'}</strong></p>
                     </div>
                   </div>
 
@@ -6381,7 +6381,7 @@
                     onClick={() => handleResetAdminAuthPassword(selectedCompanyInfo.id)}
                     className="w-full bg-brand-gray hover:bg-zinc-700 text-white text-xs font-black py-3 rounded-xl uppercase tracking-wider"
                   >
-                    🔑 Restablecer contraseña ADM
+                    ðŸ”‘ Restablecer contraseÃ±a ADM
                   </button>
 
                   <button
@@ -6404,7 +6404,7 @@
               <div className="bg-brand-dark border border-zinc-700 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl">
                 <div className="p-5 border-b border-zinc-800">
                   <h3 className="font-black text-white uppercase tracking-wider">Nueva Empresa</h3>
-                  <p className="text-xs text-zinc-500 mt-1">ID automático: {getNextCompanyId()}</p>
+                  <p className="text-xs text-zinc-500 mt-1">ID automÃ¡tico: {getNextCompanyId()}</p>
                 </div>
                 <form onSubmit={handleCreateCompany} className="p-5 space-y-4">
                   <input required value={newCompanyForm.nombre} onChange={e => setNewCompanyForm({...newCompanyForm, nombre:e.target.value})}
@@ -6412,7 +6412,7 @@
                   <input value={newCompanyForm.responsable} onChange={e => setNewCompanyForm({...newCompanyForm, responsable:e.target.value})}
                     placeholder="Nombre del responsable" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                   <input value={newCompanyForm.telefono} onChange={e => setNewCompanyForm({...newCompanyForm, telefono:e.target.value})}
-                    placeholder="Teléfono" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
+                    placeholder="TelÃ©fono" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                   <input value={newCompanyForm.ciudad} onChange={e => setNewCompanyForm({...newCompanyForm, ciudad:e.target.value})}
                     placeholder="Ciudad" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                   <div className="border border-zinc-800 rounded-xl p-4 space-y-3">
@@ -6422,11 +6422,11 @@
                     <input required type="email" value={newCompanyForm.cajeroEmail} onChange={e => setNewCompanyForm({...newCompanyForm, cajeroEmail:e.target.value})}
                       placeholder="Correo del Cajero" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                     <input required type="password" value={newCompanyForm.cajeroPassword} onChange={e => setNewCompanyForm({...newCompanyForm, cajeroPassword:e.target.value})}
-                      placeholder="Contraseña del Cajero (mínimo 6)" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
+                      placeholder="ContraseÃ±a del Cajero (mÃ­nimo 6)" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                                         <input required value={newCompanyForm.adminNombre} onChange={e => setNewCompanyForm({...newCompanyForm, adminNombre:e.target.value})}
                       placeholder="Nombre del perfil Administrador" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                     <input required type="password" value={newCompanyForm.adminPin} onChange={e => setNewCompanyForm({...newCompanyForm, adminPin:e.target.value})}
-                      placeholder="Contraseña del Administrador" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
+                      placeholder="ContraseÃ±a del Administrador" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                     <p className="text-[10px] text-zinc-500">El Cajero y el Administrador se crean con acceso Auth individual.</p>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
@@ -6434,12 +6434,12 @@
                       <span className="text-zinc-500">Plan:</span> <strong className="text-white ml-2">PRO</strong>
                     </div>
                     <input required min="0" type="number" value={newCompanyForm.dias} onChange={e => setNewCompanyForm({...newCompanyForm, dias:e.target.value})}
-                      placeholder="Días de licencia" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
+                      placeholder="DÃ­as de licencia" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                   </div>
                   <input required type="password" value={newCompanyForm.password} onChange={e => setNewCompanyForm({...newCompanyForm, password:e.target.value})}
-                    placeholder="Contraseña de acceso" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
+                    placeholder="ContraseÃ±a de acceso" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                   <input required type="password" value={newCompanyForm.confirmPassword} onChange={e => setNewCompanyForm({...newCompanyForm, confirmPassword:e.target.value})}
-                    placeholder="Confirmar contraseña" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
+                    placeholder="Confirmar contraseÃ±a" className="w-full bg-brand-gray border border-zinc-700 rounded-xl p-3 text-xs text-white" />
                   <div className="flex gap-3 pt-2">
                     <button type="button" onClick={() => setIsNewCompanyOpen(false)}
                       className="flex-1 bg-brand-gray text-white text-xs font-bold py-3 rounded-xl">Cancelar</button>
@@ -6458,7 +6458,7 @@
         <div className="min-h-screen bg-brand-black text-white flex items-center justify-center p-6 font-mono">
           <div className="w-full max-w-md bg-brand-dark border border-zinc-800 rounded-3xl p-6 shadow-2xl">
             <div className="text-center mb-6">
-              <h2 className="text-xl font-black">¿Quién va a ingresar?</h2>
+              <h2 className="text-xl font-black">Â¿QuiÃ©n va a ingresar?</h2>
               <p className="text-xs text-zinc-500 mt-2">Selecciona tu perfil para acceder al POS.</p>
             </div>
 
@@ -6477,7 +6477,7 @@
                       : 'bg-brand-black/40 border-zinc-800 hover:border-zinc-600'
                   }`}
                 >
-                  <div className="text-2xl mb-2">{user.rol === 'Administrador' ? '👑' : '👤'}</div>
+                  <div className="text-2xl mb-2">{user.rol === 'Administrador' ? 'ðŸ‘‘' : 'ðŸ‘¤'}</div>
                   <p className="font-black text-sm">{user.nombre}</p>
                   <p className="text-[10px] opacity-70 mt-1">{user.rol}</p>
                 </button>
@@ -6487,7 +6487,7 @@
             {targetUser && (
               <form onSubmit={handlePasswordSubmit} className="mt-5 pt-5 border-t border-zinc-800 space-y-3">
                 <p className="text-xs text-zinc-400">
-                  Contraseña de <strong className="text-white">{targetUser.nombre}</strong>
+                  ContraseÃ±a de <strong className="text-white">{targetUser.nombre}</strong>
                 </p>
                 <input
                   autoFocus
@@ -6497,13 +6497,13 @@
                     setPasswordInput(e.target.value);
                     setPasswordError(false);
                   }}
-                  placeholder="Ingresa tu contraseña"
+                  placeholder="Ingresa tu contraseÃ±a"
                   className={`w-full bg-brand-gray border rounded-xl p-3 text-sm text-white ${
                     passwordError ? 'border-red-500' : 'border-zinc-700'
                   }`}
                 />
                 {passwordError && (
-                  <p className="text-[10px] text-red-400">Contraseña incorrecta.</p>
+                  <p className="text-[10px] text-red-400">ContraseÃ±a incorrecta.</p>
                 )}
                 <button
                   type="submit"
@@ -6518,7 +6518,7 @@
               onClick={handleCompanyLogout}
               className="w-full mt-5 text-[10px] text-zinc-500 hover:text-white"
             >
-              ← Salir de la empresa
+              â† Salir de la empresa
             </button>
           </div>
         </div>
@@ -6555,7 +6555,7 @@
                   t.type === 'error' ? 'bg-red-600' : 'bg-green-600'
                 }`}
               >
-                <span>{t.type === 'error' ? '❌' : '✅'}</span>
+                <span>{t.type === 'error' ? 'âŒ' : 'âœ…'}</span>
                 <span>{t.message}</span>
               </div>
             ))}
@@ -6569,7 +6569,7 @@
                   <div className="absolute bottom-16 right-0 w-80 max-w-[85vw] bg-brand-dark border border-zinc-700 rounded-2xl shadow-2xl p-3 space-y-2 fade-in">
                     <div className="flex items-center justify-between border-b border-zinc-800 pb-2 mb-2">
                       <span className="text-xs font-black text-white uppercase tracking-wider">Notificaciones</span>
-                      <button onClick={() => setIsAlertsPanelOpen(false)} className="text-zinc-500 hover:text-white">✕</button>
+                      <button onClick={() => setIsAlertsPanelOpen(false)} className="text-zinc-500 hover:text-white">âœ•</button>
                     </div>
                     {activeAlerts.map((alert, index) => (
                       <div key={index} className={`text-xs rounded-xl p-3 border ${
@@ -6590,7 +6590,7 @@
                     activeAlerts.some(a => a.type === 'license') ? 'license-bell-alert ring-4 ring-amber-500/30' : ''
                   }`}
                 >
-                  🔔
+                  ðŸ””
                   <span className="absolute -top-1 -right-1 bg-red-600 text-white font-mono text-[9px] w-5 h-5 flex items-center justify-center rounded-full border-2 border-brand-black">
                     {activeAlerts.length}
                   </span>
@@ -6607,7 +6607,7 @@
                   src={logoUrl} 
                   className="h-6 md:h-8 w-auto object-contain rounded" 
                   alt="Logo" 
-                  onError={(e) => { e.target.src = 'logo.png' }} 
+                  onError={(e) => { e.target.src = '/assets/obpos-logo.png' }} 
                 />
                 <h1 className="hidden md:block font-black text-[10px] md:text-[11px] tracking-widest text-white uppercase truncate font-mono">
                   {activeCompany?.nombre || 'OB POS'}
@@ -6623,7 +6623,7 @@
                       : 'hover:bg-brand-gray/50 text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <span className="text-lg md:text-xl">🍔</span>
+                  <span className="text-lg md:text-xl">ðŸ”</span>
                   <span className="hidden md:inline text-xs md:text-sm">Ventas</span>
                 </button>
 
@@ -6635,7 +6635,7 @@
                       : 'hover:bg-brand-gray/50 text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <span className="text-lg md:text-xl">📊</span>
+                  <span className="text-lg md:text-xl">ðŸ“Š</span>
                   <span className="hidden md:inline text-xs md:text-sm">Dashboard</span>
                 </button>
 
@@ -6647,7 +6647,7 @@
                       : 'hover:bg-brand-gray/50 text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <span className="text-lg md:text-xl">📈</span>
+                  <span className="text-lg md:text-xl">ðŸ“ˆ</span>
                   <span className="hidden md:inline text-xs md:text-sm">Reportes</span>
                 </button>
 
@@ -6660,8 +6660,8 @@
                         : 'hover:bg-brand-gray/50 text-zinc-400 hover:text-white'
                     }`}
                   >
-                    <span className="text-lg md:text-xl">📦</span>
-                    <span className="hidden md:inline text-xs md:text-sm">Almacén</span>
+                    <span className="text-lg md:text-xl">ðŸ“¦</span>
+                    <span className="hidden md:inline text-xs md:text-sm">AlmacÃ©n</span>
                   </button>
                 )}
 
@@ -6674,7 +6674,7 @@
                         : 'hover:bg-brand-gray/50 text-zinc-400 hover:text-white'
                     }`}
                   >
-                    <span className="text-lg md:text-xl">💰</span>
+                    <span className="text-lg md:text-xl">ðŸ’°</span>
                     <span className="hidden md:inline text-xs md:text-sm">Gastos</span>
                   </button>
                 )}
@@ -6688,7 +6688,7 @@
                         : 'hover:bg-brand-gray/50 text-zinc-400 hover:text-white'
                     }`}
                   >
-                    <span className="text-lg md:text-xl">⚙️</span>
+                    <span className="text-lg md:text-xl">âš™ï¸</span>
                     <span className="hidden md:inline text-xs md:text-sm">Ajustes</span>
                   </button>
                 )}
@@ -6702,7 +6702,7 @@
               </div>
               <div className="flex items-center justify-center md:justify-start gap-3 px-2 py-1">
                 <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-brand-gray border border-brand-red/40 flex items-center justify-center text-sm md:text-base shrink-0">
-                  👤
+                  ðŸ‘¤
                 </div>
                 <div className="hidden md:block overflow-hidden">
                   <div className="font-extrabold text-xs text-white truncate">{currentUser?.nombre || 'Desconocido'}</div>
@@ -6735,15 +6735,15 @@
                   }}
                   className="w-full bg-brand-gray hover:bg-zinc-800 text-white text-[10px] font-black py-2 rounded-xl transition-all active-scale uppercase tracking-wider text-center font-mono"
                 >
-                  🔄 Cambiar Perfil
+                  ðŸ”„ Cambiar Perfil
                 </button>
 
                 {/* Close Enterprise Session to return to login */}
                 <button
                   onClick={() => {
                     showConfirmation(
-                      '¿Cerrar Empresa?',
-                      'Esta acción cerrará la sesión de la empresa y le regresará al Acceso de Empresa.',
+                      'Â¿Cerrar Empresa?',
+                      'Esta acciÃ³n cerrarÃ¡ la sesiÃ³n de la empresa y le regresarÃ¡ al Acceso de Empresa.',
                       () => {
                         handleCompanyLogout();
                       },
@@ -6752,7 +6752,7 @@
                   }}
                   className="w-full bg-red-950 hover:bg-brand-red text-red-400 hover:text-white text-[10px] font-black py-2.5 rounded-xl transition-all active-scale uppercase tracking-wider text-center font-mono mt-1"
                 >
-                  🚪 Cerrar Empresa ➔
+                  ðŸšª Cerrar Empresa âž”
                 </button>
               </div>
             </div>
@@ -6763,7 +6763,7 @@
             <header className="h-16 border-b border-brand-gray bg-brand-dark px-6 flex items-center justify-between shrink-0 font-mono">
               <div className="flex items-center gap-4">
                 <h2 className="text-sm md:text-base font-black tracking-wider text-white flex items-center gap-2 uppercase">
-                  <span>🚀</span> {activeTab}
+                  <span>ðŸš€</span> {activeTab}
                 </h2>
               </div>
             </header>
@@ -6783,13 +6783,13 @@
           {licenseWarning && (
             <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[80] flex items-center justify-center p-4">
               <div className="bg-brand-dark border border-amber-700 rounded-2xl w-full max-w-md shadow-2xl p-6 text-center">
-                <div className="text-5xl mb-3">⚠️</div>
+                <div className="text-5xl mb-3">âš ï¸</div>
                 <h3 className="font-black text-white uppercase tracking-wider">Licencia por vencer</h3>
                 <p className="text-sm text-zinc-300 mt-4 leading-relaxed">
-                  A tu licencia le quedan <strong className="text-amber-400">{licenseWarning.days} día{licenseWarning.days === 1 ? '' : 's'}</strong> de uso.
+                  A tu licencia le quedan <strong className="text-amber-400">{licenseWarning.days} dÃ­a{licenseWarning.days === 1 ? '' : 's'}</strong> de uso.
                 </p>
                 <p className="text-xs text-zinc-500 mt-3 leading-relaxed">
-                  Carga más días de licencia para continuar usando la aplicación sin interrupciones. Comunícate con tu asesor.
+                  Carga mÃ¡s dÃ­as de licencia para continuar usando la aplicaciÃ³n sin interrupciones. ComunÃ­cate con tu asesor.
                 </p>
                 <button
                   type="button"
@@ -6811,7 +6811,7 @@
             <div className="fixed inset-0 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-4 z-50 fade-in">
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl font-mono text-left">
                 <div className="p-5 border-b border-zinc-800 bg-brand-black/20 text-center">
-                  <h4 className="font-black text-sm uppercase tracking-wider text-white">🖨 IMPRESIÓN DE COMPROBANTES</h4>
+                  <h4 className="font-black text-sm uppercase tracking-wider text-white">ðŸ–¨ IMPRESIÃ“N DE COMPROBANTES</h4>
                 </div>
                 
                 <div className="p-6 space-y-4 text-xs text-zinc-300">
@@ -6831,14 +6831,14 @@
                       onClick={() => triggerPrint('ticket', lastSavedSale)}
                       className="w-full bg-brand-gray hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-between transition-all active-scale"
                     >
-                      <span>🖨 Imprimir Ticket Cliente</span>
+                      <span>ðŸ–¨ Imprimir Ticket Cliente</span>
                     </button>
 
                     <button
                       onClick={() => triggerPrint('comanda', lastSavedSale)}
                       className="w-full bg-brand-gray hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-between transition-all active-scale"
                     >
-                      <span>🍳 Imprimir Comanda Cocina</span>
+                      <span>ðŸ³ Imprimir Comanda Cocina</span>
                     </button>
                   </div>
                 </div>
@@ -6851,7 +6851,7 @@
                     }}
                     className="bg-brand-red text-white text-xs font-black py-2.5 px-6 rounded-xl active-scale"
                   >
-                    ❌ Cerrar e Iniciar Nueva Venta
+                    âŒ Cerrar e Iniciar Nueva Venta
                   </button>
                 </div>
               </div>
@@ -6863,7 +6863,7 @@
             <div className="fixed inset-0 bg-brand-black/95 flex items-center justify-center p-4 z-50 fade-in text-left">
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl font-mono">
                 <div className="p-5 border-b border-zinc-800 bg-brand-black/20 text-center">
-                  <h4 className="font-black text-sm uppercase tracking-wider text-white">💰 APERTURA DE CAJA DIARIA</h4>
+                  <h4 className="font-black text-sm uppercase tracking-wider text-white">ðŸ’° APERTURA DE CAJA DIARIA</h4>
                 </div>
                 <div className="p-6 space-y-4 text-xs">
                   <div>
@@ -6893,11 +6893,11 @@
             <div className="fixed inset-0 bg-brand-black/95 flex items-center justify-center p-4 z-50 fade-in text-left">
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl font-mono">
                 <div className="p-5 border-b border-zinc-800 bg-brand-black/20 text-center">
-                  <h4 className="font-black text-sm uppercase tracking-wider text-white">🔒 ARQUEO Y CIERRE DE TURNO</h4>
+                  <h4 className="font-black text-sm uppercase tracking-wider text-white">ðŸ”’ ARQUEO Y CIERRE DE TURNO</h4>
                 </div>
                 <div className="p-6 space-y-4 text-xs max-h-[80vh] overflow-y-auto no-scrollbar">
                   <div>
-                    <label className="text-[10px] uppercase font-bold text-zinc-500 block mb-1">Efectivo Físico Contado (Bs)</label>
+                    <label className="text-[10px] uppercase font-bold text-zinc-500 block mb-1">Efectivo FÃ­sico Contado (Bs)</label>
                     <input
                       type="number"
                       placeholder="Ingrese el monto arqueado..."
@@ -6912,7 +6912,7 @@
                     onClick={() => setIsClosingRegisterOpen(false)}
                     className="bg-brand-gray text-white text-xs font-bold py-2 px-4 rounded-xl active-scale"
                   >
-                    Atrás
+                    AtrÃ¡s
                   </button>
                   <button
                     onClick={handleCloseRegister}
@@ -6931,16 +6931,16 @@
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
                 <div className="p-5 border-b border-zinc-800 flex justify-between items-center bg-brand-black/40">
                   <h4 className="font-black text-xs uppercase tracking-wider text-white">
-                    💵 {isSavingSale ? 'Guardando...' : 'Confirmar Venta'}
+                    ðŸ’µ {isSavingSale ? 'Guardando...' : 'Confirmar Venta'}
                   </h4>
-                  <button onClick={() => setIsCheckoutOpen(false)} className="text-zinc-400 hover:text-white">✕</button>
+                  <button onClick={() => setIsCheckoutOpen(false)} className="text-zinc-400 hover:text-white">âœ•</button>
                 </div>
 
                 <div className="p-6 overflow-y-auto space-y-6 no-scrollbar flex-1">
                   <div className="bg-brand-black/40 border border-zinc-800 rounded-xl p-3 flex justify-between items-center text-xs">
                     <div>
-                      <p className="text-zinc-400 font-bold">📍 Mesa/Cliente:</p>
-                      <p className="text-white font-black uppercase text-sm mt-0.5">{customerTag.trim() || 'Venta Rápida'}</p>
+                      <p className="text-zinc-400 font-bold">ðŸ“ Mesa/Cliente:</p>
+                      <p className="text-white font-black uppercase text-sm mt-0.5">{customerTag.trim() || 'Venta RÃ¡pida'}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-zinc-400 font-bold">Total:</p>
@@ -6949,7 +6949,7 @@
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-500 mb-2 block">Método de Cobro</label>
+                    <label className="text-[10px] font-black uppercase tracking-wider text-zinc-500 mb-2 block">MÃ©todo de Cobro</label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       {['Efectivo', 'QR', 'Tarjeta', 'Transferencia'].map(m => (
                         <button
@@ -6998,7 +6998,7 @@
                     disabled={paymentMethod === 'Efectivo' && (parseFloat(cashReceived) < cartTotal || isNaN(parseFloat(cashReceived)))}
                     className="bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black py-2.5 px-6 rounded-xl active-scale font-sans"
                   >
-                    COBRAR Y GUARDAR VENTA ✓
+                    COBRAR Y GUARDAR VENTA âœ“
                   </button>
                 </div>
               </div>
@@ -7010,8 +7010,8 @@
             <div className="fixed inset-0 bg-brand-black/90 backdrop-blur-sm flex items-center justify-center p-4 z-50 fade-in font-mono text-left">
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl">
                 <div className="p-5 border-b border-zinc-800 bg-brand-black/40 flex justify-between items-center">
-                  <h4 className="font-black text-xs uppercase tracking-wider text-white">🧾 Detalle de Ticket #{selectedHistorySale.id}</h4>
-                  <button onClick={() => setSelectedHistorySale(null)} className="text-zinc-500 hover:text-white">✕</button>
+                  <h4 className="font-black text-xs uppercase tracking-wider text-white">ðŸ§¾ Detalle de Ticket #{selectedHistorySale.id}</h4>
+                  <button onClick={() => setSelectedHistorySale(null)} className="text-zinc-500 hover:text-white">âœ•</button>
                 </div>
                 <div className="p-6 space-y-4 text-xs max-h-[70vh] overflow-y-auto no-scrollbar">
                   <div className="grid grid-cols-2 gap-2 text-zinc-400">
@@ -7032,19 +7032,19 @@
                   </div>
 
                   <div className="border-t border-zinc-800 pt-3 space-y-2">
-                    <span className="font-bold text-[10px] text-zinc-500 uppercase tracking-wider font-sans">Acciones Profesionales de Impresión</span>
+                    <span className="font-bold text-[10px] text-zinc-500 uppercase tracking-wider font-sans">Acciones Profesionales de ImpresiÃ³n</span>
                     <div className="grid grid-cols-2 gap-2 text-[11px] font-sans">
                       <button
                         onClick={() => triggerPrint('ticket', selectedHistorySale)}
                         className="bg-brand-gray hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 active-scale"
                       >
-                        🖨 Reimprimir Ticket
+                        ðŸ–¨ Reimprimir Ticket
                       </button>
                       <button
                         onClick={() => triggerPrint('comanda', selectedHistorySale)}
                         className="bg-brand-gray hover:bg-zinc-800 border border-zinc-700 text-white font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 active-scale"
                       >
-                        🍳 Reimprimir Comanda
+                        ðŸ³ Reimprimir Comanda
                       </button>
                     </div>
                   </div>
@@ -7068,7 +7068,7 @@
             <div className="fixed inset-0 bg-brand-black/90 backdrop-blur-sm flex items-center justify-center p-4 z-50 fade-in text-left font-mono">
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl">
                 <div className="p-5 border-b border-zinc-800 bg-brand-black/20">
-                  <h4 className="font-black text-xs uppercase tracking-wider text-white">⚠️ {confirmModal.title}</h4>
+                  <h4 className="font-black text-xs uppercase tracking-wider text-white">âš ï¸ {confirmModal.title}</h4>
                 </div>
                 <div className="p-5 text-xs text-zinc-300">{confirmModal.message}</div>
                 <div className="p-4 border-t border-zinc-800 bg-brand-black/40 flex justify-end gap-2 font-sans">
@@ -7084,23 +7084,23 @@
             <div className="fixed inset-0 bg-brand-black/90 backdrop-blur-sm flex items-center justify-center p-4 z-50 fade-in text-left font-mono">
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl">
                 <div className="p-5 border-b border-zinc-800 bg-brand-black/20 flex justify-between items-center">
-                  <h4 className="font-black text-xs uppercase tracking-wider text-white">🔒 Acceso de Administrador</h4>
-                  <button onClick={() => { setIsPassModalOpen(false); setPasswordInput(''); setPasswordError(false); }} className="text-zinc-400 hover:text-white">✕</button>
+                  <h4 className="font-black text-xs uppercase tracking-wider text-white">ðŸ”’ Acceso de Administrador</h4>
+                  <button onClick={() => { setIsPassModalOpen(false); setPasswordInput(''); setPasswordError(false); }} className="text-zinc-400 hover:text-white">âœ•</button>
                 </div>
                 
                 <form onSubmit={handlePasswordSubmit}>
                   <div className="p-5 space-y-4">
-                    <p className="text-xs text-zinc-400">El perfil ADM requiere contraseña.</p>
+                    <p className="text-xs text-zinc-400">El perfil ADM requiere contraseÃ±a.</p>
                     <input
                       type="password"
-                      placeholder="Ingresa la contraseña"
+                      placeholder="Ingresa la contraseÃ±a"
                       value={passwordInput}
                       onChange={(e) => setPasswordInput(e.target.value)}
                       className="w-full bg-brand-gray border rounded-xl p-3 text-sm text-white focus:outline-none"
                       autoFocus
                       required
                     />
-                    {passwordError && <p className="text-brand-red text-[10px] font-bold">Contraseña incorrecta.</p>}
+                    {passwordError && <p className="text-brand-red text-[10px] font-bold">ContraseÃ±a incorrecta.</p>}
                   </div>
                   <div className="p-4 border-t border-zinc-800 bg-brand-black/40 flex justify-end gap-2 font-sans">
                     <button type="submit" className="bg-brand-red text-white text-xs font-black py-2 px-6 rounded-xl active-scale">Ingresar</button>
@@ -7115,7 +7115,7 @@
             <div className="fixed inset-0 bg-brand-black/90 backdrop-blur-sm flex items-center justify-center p-4 z-50 fade-in text-left font-mono">
               <div className="bg-brand-dark border border-zinc-800 rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl">
                 <div className="p-5 border-b border-zinc-800 bg-brand-black/20">
-                  <h4 className="font-black text-xs uppercase tracking-wider text-brand-red">🚨 {alertModal.title}</h4>
+                  <h4 className="font-black text-xs uppercase tracking-wider text-brand-red">ðŸš¨ {alertModal.title}</h4>
                 </div>
                 <div className="p-5 text-xs text-zinc-300 leading-relaxed">{alertModal.message}</div>
                 <div className="p-4 border-t border-zinc-800 bg-brand-black/40 flex justify-end font-sans">
