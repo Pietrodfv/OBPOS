@@ -255,7 +255,7 @@
       },
       getLogo: () => {
         try {
-          return localStorage.getItem('obelisco_logo_v3') || 'logo.png';
+          return localStorage.getItem('obelisco_logo_v3') || ''/assets/obpos-logo.png'';
         } catch (e) {
           return 'logo.png';
         }
