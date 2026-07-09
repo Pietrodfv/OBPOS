@@ -1239,7 +1239,16 @@
         };
 
         loadCloudSales();
-      }, [activeCompanyId, currentUser?.id]);
+
+const syncInterval = setInterval(() => {
+  loadCloudSales();
+}, 30000);
+
+return () => {
+  clearInterval(syncInterval);
+};
+
+}, [activeCompanyId, currentUser?.id]);
       const filteredActiveRegister = useMemo(() => {
         if (!activeRegister) return null;
         return (activeRegister.empresaId || 'EMP-001') === activeCompanyId ? activeRegister : null;
