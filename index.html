@@ -2670,6 +2670,63 @@ loadCloudRegisterHistory();
         );
       };
 
+      const refreshCloudSession = async () => {
+        const refreshToken = sessionStorage.getItem('obpos_cloud_refresh_token');
+
+        if (!refreshToken) return false;
+
+        try {
+          const response = await fetch(
+            `${SUPABASE_URL}/auth/v1/token?grant_type=refresh_token`,
+            {
+              method: 'POST',
+              headers: {
+                'apikey': SUPABASE_PUBLISHABLE_KEY,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                refresh_token: refreshToken
+              })
+            }
+          );
+
+          const data = await response.json();
+
+          if (!response.ok || !data.access_token) {
+            console.error('No se pudo renovar la sesión:', data);
+            return false;
+          }
+
+          sessionStorage.setItem('obpos_cloud_access_token', data.access_token);
+
+          if (data.refresh_token) {
+            sessionStorage.setItem(
+              'obpos_cloud_refresh_token',
+              data.refresh_token
+            );
+          }
+
+          console.log('Sesión de nube renovada correctamente');
+          return true;
+
+        } catch (error) {
+          console.error('Error renovando sesión:', error);
+          return false;
+        }
+      };
+
+      useEffect(() => {
+        if (!currentUser?.id) return;
+
+        const refreshInterval = setInterval(() => {
+          refreshCloudSession();
+        }, 45 * 60 * 1000);
+
+        return () => {
+          clearInterval(refreshInterval);
+        };
+      }, [currentUser?.id]);
+
       const getCloudHeaders = () => {
         const token = sessionStorage.getItem('obpos_cloud_access_token');
         return {
