@@ -1168,7 +1168,7 @@
           try {
             const headers = getCloudHeaders();
 
-            const salesResponse = await fetch(
+            const salesResponse = await cloudFetch(
               `${SUPABASE_URL}/rest/v1/ventas?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&select=*&order=fecha_venta.desc`,
               { headers }
             );
@@ -1180,7 +1180,7 @@
               return;
             }
 
-            const detailsResponse = await fetch(
+            const detailsResponse = await cloudFetch(
               `${SUPABASE_URL}/rest/v1/detalle_ventas?select=*`,
               { headers }
             );
@@ -1423,6 +1423,54 @@ loadCloudRegisterHistory();
         }
       };
 
+      const getDeviceId = () => {
+        let deviceId = localStorage.getItem('obpos_device_id');
+
+        if (!deviceId) {
+          deviceId = crypto.randomUUID();
+          localStorage.setItem('obpos_device_id', deviceId);
+        }
+
+        return deviceId;
+      };
+      useEffect(() => {
+        if (!currentUser?.id || !activeCompanyId) return;
+
+        const sendHeartbeat = async () => {
+          const token = sessionStorage.getItem('obpos_cloud_access_token');
+          if (!token) return;
+
+          try {
+            await fetch(
+              `${SUPABASE_URL}/rest/v1/sesiones_activas?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&perfil_id=eq.${encodeURIComponent(currentUser.cloudId || currentUser.id)}&dispositivo_id=eq.${encodeURIComponent(getDeviceId())}`,
+              {
+                method: 'PATCH',
+                headers: {
+                  'apikey': SUPABASE_PUBLISHABLE_KEY,
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  ultimo_heartbeat: new Date().toISOString(),
+                  activo: true
+                })
+              }
+            );
+          } catch (error) {
+            console.error('Error enviando heartbeat:', error);
+          }
+        };
+
+        sendHeartbeat();
+
+        const heartbeatInterval = setInterval(() => {
+          sendHeartbeat();
+        }, 30000);
+
+        return () => {
+          clearInterval(heartbeatInterval);
+        };
+      }, [currentUser?.id, activeCompanyId]);
       const handlePasswordSubmit = async (e) => {
         e.preventDefault();
         const enteredPassword = String(passwordInput || '').trim();
@@ -1452,7 +1500,39 @@ loadCloudRegisterHistory();
 
             sessionStorage.setItem('obpos_cloud_access_token', authData.access_token);
             sessionStorage.setItem('obpos_cloud_refresh_token', authData.refresh_token || '');
-            setCurrentUser(targetUser);
+            const deviceId = getDeviceId();
+
+            const sessionResponse = await fetch(
+              `${SUPABASE_URL}/rest/v1/rpc/reclamar_sesion`,
+              {
+                method: 'POST',
+                headers: {
+                  'apikey': SUPABASE_PUBLISHABLE_KEY,
+                  'Authorization': `Bearer ${authData.access_token}`,
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  p_empresa_id: activeCompanyId,
+                  p_perfil_id: targetUser.cloudId || targetUser.id,
+                  p_dispositivo_id: deviceId
+                })
+              }
+            );
+
+            const sessionData = await sessionResponse.json();
+
+            if (!sessionResponse.ok || sessionData?.permitido !== true) {
+              sessionStorage.removeItem('obpos_cloud_access_token');
+              sessionStorage.removeItem('obpos_cloud_refresh_token');
+
+              setPasswordError(true);
+              showToast(
+                'Este perfil ya está siendo utilizado en otro dispositivo',
+                'error'
+              );
+              return;
+            }
+setCurrentUser(targetUser);
             setIsLoggedIn(true);
             setIsPassModalOpen(false);
             setPasswordInput('');
@@ -2231,7 +2311,7 @@ loadCloudRegisterHistory();
         setIsSavingSale(true);
         let cloudSaleId = null;
         try {
-          const saleResponse = await fetch(`${SUPABASE_URL}/rest/v1/ventas`, {
+          const saleResponse = await cloudFetch(`${SUPABASE_URL}/rest/v1/ventas`, {
             method: 'POST',
             headers: {
               ...getCloudHeaders(),
@@ -2269,7 +2349,7 @@ loadCloudRegisterHistory();
             subtotal: item.precio * item.cantidad
           }));
 
-          const detailResponse = await fetch(`${SUPABASE_URL}/rest/v1/detalle_ventas`, {
+          const detailResponse = await cloudFetch(`${SUPABASE_URL}/rest/v1/detalle_ventas`, {
             method: 'POST',
             headers: getCloudHeaders(),
             body: JSON.stringify(detailRows)
@@ -2694,6 +2774,10 @@ loadCloudRegisterHistory();
 
           if (!response.ok || !data.access_token) {
             console.error('No se pudo renovar la sesión:', data);
+            sessionStorage.removeItem('obpos_cloud_access_token');
+            sessionStorage.removeItem('obpos_cloud_refresh_token');
+
+            console.warn('La sesión expiró. Será necesario volver a iniciar sesión.');
             return false;
           }
 
@@ -2727,6 +2811,38 @@ loadCloudRegisterHistory();
         };
       }, [currentUser?.id]);
 
+            const cloudFetch = async (url, options = {}, retry = true) => {
+        let response = await fetch(url, options);
+
+        if (response.status !== 401 || !retry) {
+          return response;
+        }
+
+        console.warn('401 detectado. Intentando renovar sesión...');
+
+        const renewed = await refreshCloudSession();
+
+        if (!renewed) {
+          console.error('No se pudo renovar la sesión.');
+          return response;
+        }
+
+        console.log('Sesión renovada. Reintentando petición...');
+
+        const headers = {
+          ...(options.headers || {}),
+          'Authorization': `Bearer ${sessionStorage.getItem('obpos_cloud_access_token')}`
+        };
+
+        response = await fetch(url, {
+          ...options,
+          headers
+        });
+
+        console.log(`Reintento finalizado. Estado: ${response.status}`);
+
+        return response;
+      };
       const getCloudHeaders = () => {
         const token = sessionStorage.getItem('obpos_cloud_access_token');
         return {
@@ -2949,7 +3065,33 @@ loadCloudRegisterHistory();
       };
 
       // CERRAR SESIÓN DE EMPRESA
-      const handleCompanyLogout = () => {
+      const handleCompanyLogout = async () => {
+        const token = sessionStorage.getItem('obpos_cloud_access_token');
+        const perfilId = currentUser?.cloudId || currentUser?.id;
+        const deviceId = getDeviceId();
+
+        if (token && activeCompanyId && perfilId) {
+          try {
+            await fetch(
+              `${SUPABASE_URL}/rest/v1/sesiones_activas?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&perfil_id=eq.${encodeURIComponent(perfilId)}&dispositivo_id=eq.${encodeURIComponent(deviceId)}`,
+              {
+                method: 'PATCH',
+                headers: {
+                  'apikey': SUPABASE_PUBLISHABLE_KEY,
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  activo: false,
+                  ultimo_heartbeat: new Date().toISOString()
+                })
+              }
+            );
+          } catch (error) {
+            console.error('Error liberando sesión:', error);
+          }
+        }
+
         sessionStorage.removeItem('obelisco_company_active');
         sessionStorage.removeItem('obelisco_session_active');
         sessionStorage.removeItem('obpos_cloud_access_token');
