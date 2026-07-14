@@ -1041,7 +1041,7 @@
           return;
         }
         try {
-          const response = await fetch(`${SUPABASE_URL}/rest/v1/categorias`, {
+          const response = await cloudFetch(`${SUPABASE_URL}/rest/v1/categorias`, {
             method: 'POST',
             headers: { ...getCloudHeaders(), 'Content-Type': 'application/json', 'Prefer': 'return=representation' },
             body: JSON.stringify({ empresa_id: activeCompanyId, nombre, emoji })
@@ -1070,7 +1070,7 @@
         if (!confirmDelete) return;
 
         try {
-          const response = await fetch(
+          const response = await cloudFetch(
             `${SUPABASE_URL}/rest/v1/categorias?id=eq.${encodeURIComponent(categoryId)}&empresa_id=eq.${encodeURIComponent(activeCompanyId)}`,
             {
               method: 'DELETE',
@@ -1168,29 +1168,29 @@
           try {
             const headers = getCloudHeaders();
 
-            const salesResponse = await cloudFetch(
-              `${SUPABASE_URL}/rest/v1/ventas?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&select=*&order=fecha_venta.desc`,
-              { headers }
-            );
+            const [salesResponse, detailsResponse] = await Promise.all([
+  cloudFetch(
+    `${SUPABASE_URL}/rest/v1/ventas?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&select=*&order=fecha_venta.desc`,
+    { headers }
+  ),
+  cloudFetch(
+    `${SUPABASE_URL}/rest/v1/detalle_ventas?select=*`,
+    { headers }
+  )
+]);
 
-            const salesRows = await salesResponse.json();
+const salesRows = await salesResponse.json();
+const detailRows = await detailsResponse.json();
 
-            if (!salesResponse.ok || !Array.isArray(salesRows)) {
-              console.error('Error cargando ventas:', salesRows);
-              return;
-            }
+if (!salesResponse.ok || !Array.isArray(salesRows)) {
+  console.error('Error cargando ventas:', salesRows);
+  return;
+}
 
-            const detailsResponse = await cloudFetch(
-              `${SUPABASE_URL}/rest/v1/detalle_ventas?select=*`,
-              { headers }
-            );
-
-            const detailRows = await detailsResponse.json();
-
-            if (!detailsResponse.ok || !Array.isArray(detailRows)) {
-              console.error('Error cargando detalles:', detailRows);
-              return;
-            }
+if (!detailsResponse.ok || !Array.isArray(detailRows)) {
+  console.error('Error cargando detalles:', detailRows);
+  return;
+}
 
             const cloudSales = salesRows.map(sale => {
               const saleDate = new Date(sale.fecha_venta);
@@ -2056,7 +2056,7 @@ setCurrentUser(targetUser);
         const profileId = currentUser?.cloudId || null;
 
         try {
-          const response = await fetch(`${SUPABASE_URL}/rest/v1/cierres_caja`, {
+          const response = await cloudFetch(`${SUPABASE_URL}/rest/v1/cierres_caja`, {
             method: 'POST',
             headers: {
               ...getCloudHeaders(),
@@ -2126,7 +2126,7 @@ setCurrentUser(targetUser);
         const diff = realCash - expectedCash;
 
         try {
-          const response = await fetch(
+          const response = await cloudFetch(
             `${SUPABASE_URL}/rest/v1/cierres_caja?id=eq.${encodeURIComponent(filteredActiveRegister.cloudId || filteredActiveRegister.id)}&empresa_id=eq.${encodeURIComponent(activeCompanyId)}`,
             {
               method: 'PATCH',
@@ -2667,7 +2667,7 @@ setCurrentUser(targetUser);
         try {
           const expenseDate = new Date(`${expenseForm.fecha}T12:00:00`).toISOString();
 
-          const response = await fetch(`${SUPABASE_URL}/rest/v1/gastos`, {
+          const response = await cloudFetch(`${SUPABASE_URL}/rest/v1/gastos`, {
             method: 'POST',
             headers: {
               ...getCloudHeaders(),
@@ -2871,7 +2871,7 @@ setCurrentUser(targetUser);
             return;
           }
 
-          const createResponse = await fetch(`${SUPABASE_URL}/rest/v1/productos`, {
+          const createResponse = await cloudFetch(`${SUPABASE_URL}/rest/v1/productos`, {
             method: 'POST',
             headers: {
               ...getCloudHeaders(),
@@ -2941,7 +2941,7 @@ setCurrentUser(targetUser);
               const product = products.find(p => p && p.id === productId);
               const cloudId = product?.cloudId || String(productId).replace('cloud-', '');
 
-              const response = await fetch(
+              const response = await cloudFetch(
                 `${SUPABASE_URL}/rest/v1/productos?id=eq.${encodeURIComponent(cloudId)}&empresa_id=eq.${encodeURIComponent(activeCompanyId)}`,
                 {
                   method: 'DELETE',
@@ -3006,7 +3006,7 @@ setCurrentUser(targetUser);
         }
 
         try {
-          const response = await fetch(`${SUPABASE_URL}/rest/v1/inventario`, {
+          const response = await cloudFetch(`${SUPABASE_URL}/rest/v1/inventario`, {
             method: 'POST',
             headers: {
               ...getCloudHeaders(),
@@ -4060,7 +4060,7 @@ setCurrentUser(targetUser);
       const updateCloudInventoryStock = async (ingredient, delta, silent = false) => {
         const nextStock = Math.max(0, Number(ingredient.stock || 0) + delta);
         try {
-          const response = await fetch(
+          const response = await cloudFetch(
             `${SUPABASE_URL}/rest/v1/inventario?id=eq.${encodeURIComponent(ingredient.cloudId)}&empresa_id=eq.${encodeURIComponent(activeCompanyId)}`,
             {
               method: 'PATCH',
@@ -4097,7 +4097,7 @@ setCurrentUser(targetUser);
         if (costoUnitario === null) return;
 
         try {
-          const response = await fetch(
+          const response = await cloudFetch(
             `${SUPABASE_URL}/rest/v1/inventario?id=eq.${encodeURIComponent(ingredient.cloudId)}&empresa_id=eq.${encodeURIComponent(activeCompanyId)}`,
             {
               method: 'PATCH',
@@ -4139,7 +4139,7 @@ setCurrentUser(targetUser);
           `¿Deseas eliminar "${ingredient.nombre}" del inventario?`,
           async () => {
             try {
-              const response = await fetch(
+              const response = await cloudFetch(
                 `${SUPABASE_URL}/rest/v1/inventario?id=eq.${encodeURIComponent(ingredient.cloudId)}&empresa_id=eq.${encodeURIComponent(activeCompanyId)}`,
                 {
                   method: 'PATCH',
@@ -4172,9 +4172,9 @@ setCurrentUser(targetUser);
           try {
             const headers = getCloudHeaders();
             const [suppliersRes, purchasesRes, recipesRes] = await Promise.all([
-              fetch(`${SUPABASE_URL}/rest/v1/proveedores?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&activo=eq.true&select=*&order=nombre.asc`, { headers }),
-              fetch(`${SUPABASE_URL}/rest/v1/compras?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&select=*&order=fecha.desc`, { headers }),
-              fetch(`${SUPABASE_URL}/rest/v1/recetas?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&select=*&order=id.asc`, { headers })
+              cloudFetch(`${SUPABASE_URL}/rest/v1/proveedores?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&activo=eq.true&select=*&order=nombre.asc`, { headers }),
+              cloudFetch(`${SUPABASE_URL}/rest/v1/compras?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&select=*&order=fecha.desc`, { headers }),
+              cloudFetch(`${SUPABASE_URL}/rest/v1/recetas?empresa_id=eq.${encodeURIComponent(activeCompanyId)}&select=*&order=id.asc`, { headers })
             ]);
             const supplierRows = await suppliersRes.json();
             const purchaseRows = await purchasesRes.json();
@@ -4195,7 +4195,7 @@ setCurrentUser(targetUser);
         if (!supplierForm.nombre.trim()) return;
 
         try {
-          const response = await fetch(`${SUPABASE_URL}/rest/v1/proveedores`, {
+          const response = await cloudFetch(`${SUPABASE_URL}/rest/v1/proveedores`, {
             method: 'POST',
             headers: { ...getCloudHeaders(), 'Prefer': 'return=representation' },
             body: JSON.stringify({
@@ -4322,7 +4322,7 @@ setCurrentUser(targetUser);
           return;
         }
         try {
-          const response = await fetch(`${SUPABASE_URL}/rest/v1/recetas`, {
+          const response = await cloudFetch(`${SUPABASE_URL}/rest/v1/recetas`, {
             method: 'POST',
             headers: { ...getCloudHeaders(), 'Prefer': 'return=representation' },
             body: JSON.stringify({
