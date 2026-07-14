@@ -2802,47 +2802,170 @@ setCurrentUser(targetUser);
       useEffect(() => {
         if (!currentUser?.id) return;
 
+        const keepSessionAlive = async () => {
+          console.log('SessionManager: verificando sesión...');
+
+          const ok = await refreshCloudSession();
+
+          if (!ok) {
+            console.warn('SessionManager: no fue posible renovar la sesión.');
+          }
+        };
+
+        keepSessionAlive();
+
         const refreshInterval = setInterval(() => {
-          refreshCloudSession();
-        }, 45 * 60 * 1000);
+          keepSessionAlive();
+        }, 20 * 60 * 1000);
 
         return () => {
           clearInterval(refreshInterval);
         };
       }, [currentUser?.id]);
 
-            const cloudFetch = async (url, options = {}, retry = true) => {
-        let response = await fetch(url, options);
+// ==========================================================
+// CLOUD MANAGER CLASS
+// ==========================================================
+class CloudManager {
 
-        if (response.status !== 401 || !retry) {
-          return response;
-        }
+  constructor() {
+    this.version = '2.0.0';
 
-        console.warn('401 detectado. Intentando renovar sesión...');
+// Estado general
+    this.online = navigator.onLine;
+    this.serverOnline = true;
+    this.initialized = false;
 
-        const renewed = await refreshCloudSession();
+    // Autenticación
+    this.authenticated = false;
+    this.refreshing = false;
+    this.lastTokenRefresh = null;
 
-        if (!renewed) {
-          console.error('No se pudo renovar la sesión.');
-          return response;
-        }
+    // Sincronización
+    this.syncing = false;
+    this.lastSync = null;
+    this.pendingRequests = 0;
+    this.queuedOperations = 0;
 
-        console.log('Sesión renovada. Reintentando petición...');
+    // Heartbeat
+    this.lastHeartbeat = null;
 
-        const headers = {
-          ...(options.headers || {}),
-          'Authorization': `Bearer ${sessionStorage.getItem('obpos_cloud_access_token')}`
-        };
+    // Reintentos
+    this.retryCount = 0;
+    this.maxRetries = 3;
+  }
 
-        response = await fetch(url, {
-          ...options,
-          headers
-        });
+  startRequest() {
+    this.pendingRequests++;
+  }
 
-        console.log(`Reintento finalizado. Estado: ${response.status}`);
+  finishRequest() {
+    if (this.pendingRequests > 0) {
+      this.pendingRequests--;
+    }
+  }
 
-        return response;
-      };
+  startSync() {
+    this.syncing = true;
+  }
+
+  finishSync() {
+    this.syncing = false;
+    this.lastSync = new Date();
+  }
+
+  setOnline() {
+    this.online = true;
+    console.log('🌐 CloudManager: conexión restaurada');
+  }
+
+  setOffline() {
+  this.online = false;
+  console.log('📴 CloudManager: sin conexión');
+}
+
+setServerStatus(status) {
+  this.serverOnline = status;
+
+  console.log(
+    `☁️ CloudManager: servidor ${status ? 'disponible' : 'no disponible'}`
+  );
+}
+
+getStatus() {
+  return {
+    version: this.version,
+    online: this.online,
+    serverOnline: this.serverOnline,
+    authenticated: this.authenticated,
+    refreshing: this.refreshing,
+    syncing: this.syncing,
+    pendingRequests: this.pendingRequests,
+    queuedOperations: this.queuedOperations,
+    lastSync: this.lastSync,
+    lastHeartbeat: this.lastHeartbeat,
+    retryCount: this.retryCount
+  };
+}
+
+}
+
+const cloudManager = new CloudManager();
+
+window.addEventListener('online', () => {
+  cloudManager.setOnline();
+});
+
+window.addEventListener('offline', () => {
+  cloudManager.setOffline();
+});
+
+const cloudFetch = async (url, options = {}, retry = true) => {
+
+  cloudManager.startRequest();
+
+  try {
+
+    let response = await fetch(url, options);
+
+    cloudManager.setServerStatus(response.ok);
+
+    if (response.status !== 401 || !retry) {
+      return response;
+    }
+
+    console.warn('401 detectado. Intentando renovar sesión...');
+
+    const renewed = await refreshCloudSession();
+
+    if (!renewed) {
+      console.error('No se pudo renovar la sesión.');
+      return response;
+    }
+
+    console.log('Sesión renovada. Reintentando petición...');
+
+    const headers = {
+      ...(options.headers || {}),
+      'Authorization': `Bearer ${sessionStorage.getItem('obpos_cloud_access_token')}`
+    };
+
+    response = await fetch(url, {
+      ...options,
+      headers
+    });
+
+    console.log(`Reintento finalizado. Estado: ${response.status}`);
+
+    return response;
+
+  } finally {
+
+    cloudManager.finishRequest();
+
+  }
+
+};
       const getCloudHeaders = () => {
         const token = sessionStorage.getItem('obpos_cloud_access_token');
         return {
@@ -5364,6 +5487,18 @@ setCurrentUser(targetUser);
               >
                 💾 Copias de Seguridad
               </button>
+
+              <button
+              onClick={() => setConfigSubTab('CLOUD')}
+              className={`px-4 py-2 text-xs font-black tracking-wider rounded-lg transition-all active-scale ${
+              configSubTab === 'CLOUD'
+              ? 'bg-brand-red text-white'
+              : 'text-zinc-400 bg-brand-dark/50'
+              }`}
+              >
+              ☁️ Estado del Sistema
+              </button>
+
             </div>
 
             <div className="flex-1 overflow-y-auto no-scrollbar">
