@@ -6050,6 +6050,18 @@ const cloudFetch = async (url, options = {}, retry = true) => {
                   </div>
                 </div>
               )}
+
+              {configSubTab === 'CLOUD' && (
+                <div className="bg-brand-dark border border-zinc-800 rounded-2xl p-6 shadow-lg max-w-4xl fade-in">
+                  <h3 className="text-lg font-black text-white mb-6">
+                    ☁️ Estado del Sistema
+                  </h3>
+
+                  <p className="text-zinc-400 text-sm">
+                    Panel de monitoreo del CloudManager.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         );
