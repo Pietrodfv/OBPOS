@@ -3748,6 +3748,8 @@
             this.pendingRequests = 0;
             this.queuedOperations = 0;
 
+            this.syncQueue = [];
+
             // Heartbeat
             this.lastHeartbeat = null;
 
@@ -3810,6 +3812,41 @@
           notifyStatus() {
             this.notify?.();
           }
+          addToQueue(operation) {
+            this.syncQueue.push(operation);
+            this.queuedOperations = this.syncQueue.length;
+            this.notifyStatus();
+
+            console.log(
+              `📦 Operación agregada a la cola (${this.queuedOperations} pendientes)`,
+            );
+          }
+
+          removeFromQueue() {
+            const item = this.syncQueue.shift();
+            this.queuedOperations = this.syncQueue.length;
+            this.notifyStatus();
+            return item;
+          }
+
+          clearQueue() {
+            this.syncQueue = [];
+            this.queuedOperations = 0;
+            this.notifyStatus();
+          }
+          printQueue() {
+            console.table(this.syncQueue);
+          }
+          testQueue() {
+            this.addToQueue({
+              id: Date.now(),
+              type: "TEST",
+              message: "Prueba de sincronización",
+              createdAt: new Date().toISOString(),
+            });
+
+            this.printQueue();
+          }
           getStatus() {
             return {
               version: this.version,
@@ -3826,9 +3863,68 @@
             };
           }
         }
+        class OfflineStorage {
+          constructor() {
+            this.db = null;
+          }
 
+          async init() {
+            return new Promise((resolve, reject) => {
+              const request = indexedDB.open("OBPOS_OFFLINE_DB", 1);
+
+              request.onerror = () => {
+                console.error("❌ Error abriendo IndexedDB");
+                reject(request.error);
+              };
+
+              request.onsuccess = () => {
+                this.db = request.result;
+                console.log("✅ IndexedDB lista");
+                resolve(this.db);
+              };
+
+              request.onupgradeneeded = (event) => {
+                const db = event.target.result;
+
+                if (!db.objectStoreNames.contains("sync_queue")) {
+                  db.createObjectStore("sync_queue", {
+                    keyPath: "id",
+                  });
+
+                  console.log("📦 Tabla sync_queue creada");
+                }
+              };
+            });
+          }
+          async loadAll(storeName) {
+            return new Promise((resolve, reject) => {
+              const transaction = this.db.transaction([storeName], "readonly");
+
+              const store = transaction.objectStore(storeName);
+
+              const request = store.getAll();
+
+              request.onsuccess = () => {
+                console.log(`📂 ${request.result.length} registros cargados`);
+                resolve(request.result);
+              };
+
+              request.onerror = () => {
+                console.error("❌ Error leyendo datos");
+                reject(request.error);
+              };
+            });
+          }
+        }
         const cloudManager = new CloudManager();
+
+        const offlineStorage = new OfflineStorage();
+        window.offlineStorage = offlineStorage;
+
+        offlineStorage.init();
+
         window.cloudManager = cloudManager;
+
         window.addEventListener("online", () => {
           cloudManager.setOnline();
         });
